@@ -1,0 +1,33 @@
+Updated csv is Bazuro_Orange_Stream_Field_Data
+
+
+Citation: Charles Diamond, Roman Dial, Timothy Lyons, David Cooper, Christopher Tino, Patrick Sullivan. (2024). Metal Concentrations in Tundra Seep, Tributary and River Waters of the Western Brooks Range, Alaska, 2022-2023. Arctic Data Center. doi:10.18739/A2HQ3S124.
+
+
+
+Dataset Link: https://search.dataone.org/view/doi%3A10.18739%2FA2HQ3S124
+
+
+
+This dataset examines metal concentrations and other abiotic factors in Seep water in the Wester Brooks Range of Alaska from 2022 to 2023. The study focuses on the Salmon watershed and the community of Kiana which survive off of fish harvested from the watershed. Several nearby watershed were also sampled including Timber Creek, Tukpahlearik Creek, Salmon River, Kallarichuk River, Kobuk River and Devil's Lake. The dataset specifically includes field measurements of pH, conductivity, Dissolved oxygen, and turbidity. 
+
+
+
+
+This dataset contains the following columns: Lat: refers to the latitude in decimal degrees measured in the Gaia GPS app.
+Lon: refers to the longitude in decimal degrees measured in the Gaia GPS app.
+Elev_masl: refers to the Elevation in meters above sea level as measured in the Gaia GPS app.
+Basin: refers to the name of the watershed or basin in which the measurements were made and samples collected
+Type: refers to the body of water where the measurements were made and samples collected. Values are seep and seep_control which refer to tundra acid seep and unaffected tundra water near a steep but unaffected respectively, along with tributary (trib), river, a wetland, and lake.
+River_km: Distance downriver from the main stem of the salmon river.
+FieldName: name of each sampling location, as chosen by the field team.
+Date: Sampling date
+Filtration: Either filtered or unfiltered to determine what type of water the samples were taken from.
+pH: pH measurement
+EC_uS_cm Electrical conductance in microsiemens per centimeter
+Temp_C: Water temperature in Celsius
+Turbidity_FNU: Turbidity in Formazin Nephelometric Units
+DO_per: refers to the Dissolved Oxygen in saturation percentage.
+DO_mg_L: refers to the Dissolved Oxygen in mg/L units.
+Element: Element measured
+Concentration: Concentration of the chosen measure in units of parts per million.

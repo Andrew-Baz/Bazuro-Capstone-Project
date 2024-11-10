@@ -1,0 +1,140 @@
+---
+title: "Bazuro-Capstone-Project"
+author: "Andrew Bazuro"
+format: html
+editor: visual
+---
+
+```{r}
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(ggfortify)
+library(multcomp)
+Stream = read.csv(here("Data", "Bazuro_Orange_Stream_Field_Data.csv"))
+```
+
+Load in packages, and read in/name dataset as `Stream`.
+
+```{r}
+Stream$Element <- as.factor(Stream$Element)
+Stream$Type <- as.factor(Stream$Type)
+```
+
+Examined dataset and made appropriate variables into factors. This includes the `Element` and `Type` variable as I am using both in my analysis and they are categorical variables.
+
+```{r}
+levels(Stream$Element)
+```
+
+I then examined the `Element` levels to ensure that there are no mistakes in spelling. I see none here so I will move on to the `Type` variable after I remove any unwanted elements. Since, I only want to examine a few, I will be filtering to remove the rest.
+
+```{r}
+Stream <- Stream |> filter(Element == "Fe" | 
+                             Element == "K" | 
+                             Element == "Na" | 
+                             Element == "Mg")
+Stream
+```
+
+On examination only these levels are left in the `Element` column and the dataset is down to 832 cases. Which shows that only relevant elements remain.
+
+```{r}
+levels(Stream$Type)
+```
+
+I then examined the Type levels to ensure there are no mistakes in spelling. I also see none here so I will move on to the `Concentration_ppm` and `DO_per` for outliers.
+
+```{r}
+ggplot(data = Stream, aes(y = Concentration_ppm)) +
+  geom_boxplot()
+```
+
+Here we can see that there is a huge number of outliers and a mean that is practically 0. This is concerning so I will look at both the descending and ascending values for `Concentration_ppm`.
+
+```{r}
+Stream |> arrange(desc(Concentration_ppm))
+```
+
+Its important to note that the first 10 outliers are all from `Mg`, and it is worth noting that they all come from the same body of water, the `seep`. So I will recreate the plot while faceting for element before I remove any.
+
+```{r}
+ggplot(data = Stream, aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element)
+```
+
+This shows that the outliers are primarily in the `Mg` and `Fe` elements, which due to the high number might simply be representative of them having a significant increase in certain bodies of water. As such, I will check the ascending values to see if there are any zeros.
+
+```{r}
+Stream |> arrange(Concentration_ppm)
+```
+
+Here we can see that there are concentration values are all above zero, but can be very small. Since I have noticed that the type has varied between the top values for the `arrange()` and the `arrange(desc())` one I performed I will create a plot faceted for type, with only `Fe` and `Mg`.
+
+```{r}
+Streamplot <- Stream |> filter(Element == "Fe" | 
+                                 Element == "Mg")
+
+ggplot(data = Streamplot, aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element + Type)
+```
+
+When divided like this the data shows far fewer outliers, with only a few that are potentially concerning. I will only remove the one located in the `Mg` `trib` plot and the one located in the `Mg` `river` plot as they are far outside the interquartile range.
+
+```{r}
+Stream = Stream |> mutate(Concentration_ppm = if_else(Element == "Mg" &
+                                                        Type != "seep" & 
+                                                        Concentration_ppm >= 200, 
+                                                      true = NA, 
+                                                      false = Concentration_ppm))
+
+Stream_Destroy |> arrange(desc(Concentration_ppm))
+```
+
+Here we set up a mutate function to change any `Mg` variables that aren't in the `seep` type and are greater than 200 to be `NA`
+
+```{r}
+Streamplot2 <- Stream |> filter(Element == "Fe" | 
+                                  Element == "Mg")
+
+ggplot(data = Streamplot2, aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element + Type)
+```
+
+This is the plot used to identify outliers after removing the outier from `Mg` `trib` and `Mg` `river`. While there are still some remaining outliers they aren't as concerning as the previous ones and will be left in the dataset.
+
+I will now look at the `DO_per` variable using the same boxplot method.
+
+```{r}
+ggplot(data = Stream, aes(y = DO_per)) +
+  geom_boxplot(outlier.color = "red")
+```
+
+There are several outliers so I will use another `arrange()` to examine them
+
+```{r}
+Stream |> arrange(DO_per)
+```
+
+Since one of the main goals for this analysis is to look at the relationship between trace elements and `DO_per` I will be leaving all of these outliers inside the dataset, as while they are outside the interquartile range they are important points which will be useful for noting any changes in trace elements that may occur.
+
+The variables that I will need in my analysis are the `DO_per`, `Type`, `Element`, and `Concentration_ppm`. Each of these are already in the form that I need, and do not need to have any more changes made to them. As such, I will use the `write.csv()` function to create a new dataset with the updated dataset.
+
+```{r}
+##make sure to run this chunk all at once if you want it to save in the data folder. Only running write.csv will end up saving it in your code folder.
+getwd()
+setwd(here("Data"))
+write.csv(Stream, file = "Bazuro_Capstone_Final", )
+```
+
+Here I attempted to use `write.csv()` to create the updated dataset and load it to the Data folder. To do this I had to use `getwd()` to get the working directory and `setwd()` to temporarily change the working directory to the Data folder. I then attempted to reload the dataset as `Stream_test` to make sure it loaded correctly.
+
+```{r}
+Stream_test = read.csv(here("Data", "Bazuro_Capstone"))
+Stream_test
+```
+
+As the dataset appears to have been saved and loaded correctly I will now perform some exploratory data analysis. I will start by creating the two models that will be used.
