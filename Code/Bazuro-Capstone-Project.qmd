@@ -89,8 +89,6 @@ Stream = Stream |> mutate(Concentration_ppm = if_else(Element == "Mg" &
                                                         Concentration_ppm >= 200, 
                                                       true = NA, 
                                                       false = Concentration_ppm))
-
-Stream_Destroy |> arrange(desc(Concentration_ppm))
 ```
 
 Here we set up a mutate function to change any `Mg` variables that aren't in the `seep` type and are greater than 200 to be `NA`
@@ -127,14 +125,50 @@ The variables that I will need in my analysis are the `DO_per`, `Type`, `Element
 ##make sure to run this chunk all at once if you want it to save in the data folder. Only running write.csv will end up saving it in your code folder.
 getwd()
 setwd(here("Data"))
-write.csv(Stream, file = "Bazuro_Capstone_Final", )
+write.csv(Stream, file = "Bazuro_Capstone_Final", row.names = FALSE)
 ```
 
 Here I attempted to use `write.csv()` to create the updated dataset and load it to the Data folder. To do this I had to use `getwd()` to get the working directory and `setwd()` to temporarily change the working directory to the Data folder. I then attempted to reload the dataset as `Stream_test` to make sure it loaded correctly.
 
 ```{r}
-Stream_test = read.csv(here("Data", "Bazuro_Capstone"))
+Stream_test = read.csv(here("Data", "Bazuro_Capstone_Final"))
 Stream_test
 ```
 
 As the dataset appears to have been saved and loaded correctly I will now perform some exploratory data analysis. I will start by creating the two models that will be used.
+
+```{r}
+mod1 = lm(Concentration_ppm ~ Type + Element, data = Stream)
+mod2 = lm(Concentration_ppm ~ DO_per, data = Stream)
+```
+
+Now, I will create the plot for the first question: What is the relationship between habitat type and the abundance of the Mg, Na, Fe, and K?
+
+```{r}
+ggplot(data = Stream, aes(x = Concentration_ppm)) +
+  geom_boxplot() +
+  facet_wrap(~Type)
+```
+Based on this we can see that the amounts are low in every area aside from the seep type, although there are some notable outliers present in the trib and river plots which may be a sign of significant differences. However, the average for all 4 graphs is around 0, with seep having the highest.
+
+Now I will create a plot for the second question: What ist he relationship between the trace elements and the percent dissolved oxygen?
+```{r}
+ggplot(data = Stream, aes(x = DO_per, y = Concentration_ppm)) +
+  geom_point() +
+  facet_wrap(~Element)
+```
+The averages for these is harder to tell but appears to be in the high 90s for each graph. 
+
+I will now create the summary statistics for the first model.
+```{r}
+anova(mod1)
+summary(mod1)
+```
+We can see that there is evidence of some significant differences in the variables for the first question.
+
+I will now create the summary statistics for the second model
+```{r}
+anova(mod2)
+summary(mod2)
+```
+We can also see that there is evidence of significant differences in the variables for the second question.
