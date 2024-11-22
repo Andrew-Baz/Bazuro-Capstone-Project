@@ -1,0 +1,159 @@
+---
+title: "Data_Analysis_Element_Type"
+author: "Andrew Bazuro"
+format: html
+editor: visual
+---
+
+To start I will first read in the data from the exploration that I plan to use for creating my model
+
+```{r}
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(ggfortify)
+library(multcomp)
+Stream = read.csv(here("Data", "Bazuro_Capstone_Final.csv"))
+```
+
+After reading in the dataset we should check it to ensure that all variables are the correct types. Since I had to change several in the exploration I would expect to have to change several now.
+
+```{r}
+glimpse(Stream)
+```
+
+My analysis will use the `Type` and `Element` variables so I will change those to factors for later analysis. There are currently 17 columns in the dataframe and 832 rows left so the remaining data should only include the Elements that we care about.
+
+```{r}
+Stream$Element <- as.factor(Stream$Element) #changes the Element variable into a factor
+Stream$Type <- as.factor(Stream$Type) #changes the Type variable into a factor
+glimpse(Stream)
+```
+
+I will also check the levels for both element and type to make sure that I only have the ones I want for the analysis
+```{r}
+levels(Stream$Element)
+levels(Stream$Type)
+```
+We have four levels in the `Element` column and six in the `Type` column so we are good to go.
+The question that I am examining is: What is the effect of different habitat types on the abundance of Mg, Na, Fe, and K. 
+
+#Plots
+##Mg plot
+We already examined the plots for outliers in the Data exploration so I won't do that here. However, I will still place a histogram here to estimate the means of each section.
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+Here I see no outliers and will now create a boxplot to examine the mean.
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+The mean for most graphs is close to zero, while the mean in the seep is closer to 200. As such, I expect to see a significant increase in the seep compared to the other habitat types.
+##Na plot
+I will now examine `Na`
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+Here the values are extremely close and are within the expected range of 10. As such I will now create a boxplot to examine means.
+
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+Based on the means I would estimate there to be no significant differences as most of the averages are very close except for seep_control, trib, and river which all appear to slightly lower. If there are significant differences I would expect it to be between seep/wetland and either river or trib. While there are some outliers here in the trib pot I will be leaving them in. The averages of the lake, river, and trib are all around 1.5 while the mean of seep_control is at 1. The mean of wetland and seep are higher around 2.5. 
+
+##K plot
+I will now examine `K`
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+Here the values are extremely close and while there are some outliers I have already trimmed out the ones that should have a huge effect on the meean. As such I will now create a boxplot to examine means.
+
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+Based on this plot I would only expect a significant difference between the seep and the other plots, as it has a mean around 1 while the rest are all closer to 0.25.
+
+##Fe plot
+I will now examine `Fe`
+```{r}
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+I see no outliers here so I will now examine the boxplot.
+```{r}
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+While there are again some outliers here they are close enough that they shouldn't be a concern. Based on the means I would expect to see a significant difference in only the seep as it has a mean closer to 150 while the rest are close to 0.
+
+#Model
+As I see no outliers and have examined each plot I will now create the model.
+```{r}
+mod1 = lm(Concentration_ppm ~ Type + Element, data = Stream) ##concentration_ppm explained by Type + Element
+```
+
+I have chosen to perform a two-way anova here because I want to examine the effects of two categorical predictor variables on one ratio response variable. Since my samples are both independent an Anova is the best test but will need to be two tailed to examine both of the predictors at once.
+
+#Model assumptions
+I will now check the model assumptions using the `autoplot()` function
+```{r}
+autoplot(mod1) ##When I ran this I noticed a ton of points coming off the line and went back to my exploration to remove way more of the outliers. However, even after doing so I am still seeing the points move off the line. If you think I should go  back and be even stricter please let me know as while I want to keep as many in as possible to account for the different habitat types and Elements this does look concerning.
+```
+It is noteable here that there are several values near the end of the normality plot that have moved far off the line. This shows that they will have a strong effect on the data and could potentially cause problems. For now I'll leave them but they could potentially cause problems later. 
+
+#Interpretation
+I will now run the `anova()` function to interpret the model
+```{r}
+anova(mod1)
+```
+Here we can see that there is a highly significant effect of type and element on the concentration_ppm. There are 5 df for the type variable because it has 6 levels and we are calcuating n = 6 so df = n - 1 = 5. There are 3 df for element because it has 4 levels and we are calculating n = 4 so df = n - 1 = 3. Our residuals df is 807 because we have 832 rows of data and are using up 25 df for the combination of type and habitat interactions plus the 1 remaining df. 832 - 6 * 4 -1 = 807.
+
+
+I will now run the `summary()` function to examine how the concentration_ppm compares to the intercept for each habitat/type interaction.
+```{r}
+summary(mod1)
+```
+Our intercept here is the ElementFe predictor which is significantly different from the seep type and the three other elements. 
+
+I assume that you want us to run a tukeyHSD here but when I attempted to do so I had some errors trying to figure it out. I ended up checking chapter 6 but didn't see anything about how to use a TukeyHSD here so if you'd like one in the final analysis I'd prefer to meet with you about the proper setup for a two-way anova tukey. I ended up following the chapter to create a plot using the means and std deviations to show variation.
+
+I will now create a plot using the means and std deviations of each of the commbinations.
+
+```{r}
+sum_stream <- Stream |> group_by(Element, Type) |> summarise(
+  mean_Concentration = mean(Concentration_ppm),
+    sd_Concentration = sd(Concentration_ppm)/sqrt(n())
+)
+sum_stream
+```
+#Plot
+I will now create the plot
+```{r}
+ggplot(sum_stream, aes(x = Type, y = mean_Concentration, colour = Element, group = Element)) +
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin = mean_Concentration - sd_Concentration,
+                    ymax = mean_Concentration + sd_Concentration), width = 0.1) +
+  theme_bw()
+```
+This plot is based off the one from chapter 6. It looks like it runs into a lot of the issues that my plots in the exploration ran into where they would all be put in relative to one another and ended up looking really weird due to the y axis. 
+
+#Results
+
+Overall, we reject the null hypothesis that there was no relationship between `Element`, `Type`, and the `Concentration_ppm`. As we found that both the `Element` (F = 26.44, p = 2.55 E-16)and `Type` (F = 32.99, p = 2.2e -16) had a significant and positive effect on the `Concentration_ppm`.
+
+Again I'm not sure about this. I tried to model it based off the key from problem set 3 but the two-way anova doesn't match it very well.

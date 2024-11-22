@@ -1,0 +1,272 @@
+---
+title: "Bazuro-Data-Exploration"
+author: "Andrew Bazuro"
+format: html
+editor: visual
+---
+
+```{r}
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(ggfortify)
+library(multcomp)
+Stream = read.csv(here("Data", "Bazuro_Orange_Stream_Field_Data.csv"))
+```
+
+Load in packages, and read in/name dataset as `Stream`.
+
+```{r}
+Stream$Element <- as.factor(Stream$Element)
+Stream$Type <- as.factor(Stream$Type)
+glimpse(Stream)
+```
+
+Examined dataset and made appropriate variables into factors. This includes the `Element` and `Type` variable as I am using both in my analysis and they are categorical variables. We can see here that the dataset is made up of 17 columns and 4,368 rows.
+
+```{r}
+levels(Stream$Element)
+```
+
+We can see here that there are currently 21 levels to the `Element` variable. I see no mistakes in spelling so I will move on to the `Type` variable after I remove any unwanted elements. Since, I only want to examine a few, I will be filtering to remove the rest.
+
+```{r}
+Stream <- Stream |> filter(Element == "Fe" | 
+                             Element == "K" | 
+                             Element == "Na" | 
+                             Element == "Mg")
+Stream
+```
+
+On examination only these levels are left in the `Element` column and the dataset is down to 832 cases. Which shows that only relevant elements remain.
+
+```{r}
+levels(Stream$Type)
+```
+
+I then examined the Type levels to ensure there are no mistakes in spelling. I also see none here so I will move on to the `Concentration_ppm` and `DO_per` for outliers.
+
+```{r}
+ggplot(data = Stream, aes(y = Concentration_ppm)) +
+  geom_boxplot()
+```
+
+Here we can see that there is a huge number of outliers and a mean that is practically 0. This is concerning so I will look at both the descending and ascending values for `Concentration_ppm`.
+
+```{r}
+Stream |> arrange(desc(Concentration_ppm))
+```
+
+Its important to note that the first 10 outliers are all from `Mg`, and it is worth noting that they all come from the same body of water, the `seep`. So I will recreate the plot while faceting for element before I remove any.
+
+```{r}
+ggplot(data = Stream, aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element)
+```
+
+This shows that the outliers are primarily in the `Mg` and `Fe` elements, which due to the high number might simply be representative of them having a significant increase in certain bodies of water. As such, I will check the ascending values to see if there are any zeros.
+
+```{r}
+Stream |> arrange(Concentration_ppm)
+```
+
+Here we can see that there are concentration values are all above zero, but can be very small. Since I have noticed that the type has varied between the top values for the `arrange()` and the `arrange(desc())` one I performed I will create a plot faceted for type, with only `Fe` and `Mg`.
+
+```{r}
+Stream |> filter(Element == "Fe" | 
+                                 Element == "Mg") |> 
+
+ggplot(aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element + Type)
+```
+
+When divided like this the data shows far fewer outliers, with only a few that are potentially concerning.
+
+I will also use histograms to look at each element
+
+```{r}
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+Our `Fe` histogram looks fine.
+
+I will now look at `Mg`
+
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+Mg has an outlier in both the river and tributary graphs. I will be removing these as they are both far above the mean and will have a disproportionate effect on the results as they are nearly 1000 in a dataset where the mean is close to zero.
+
+```{r}
+Stream = Stream |> mutate(Concentration_ppm = if_else(Element == "Mg" & # Element is Mg
+                                                        Type != "seep" &  #habitat type isn't seep
+                                                        Concentration_ppm >= 200, 
+                                                      true = NA, 
+                                                      false = Concentration_ppm))
+```
+
+Here we set up a mutate function to change any `Mg` variables that aren't in the `seep` type and are greater than 200 to be `NA`
+
+I will now reexamine the Mg plot
+
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+I will now look at `Na`
+
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+There are some values that could be outliers in the river and trib, so I will be removing them so that they don't have a disproportionate effect on the mean. To do this I will remove any concentration above 5 for every plot aside from the seep.
+
+```{r}
+Stream = Stream |> mutate(Concentration_ppm = if_else(Element == "Na" & # Element is Mg
+                                                        Type != "seep" &  #habitat type isn't seep
+                                                        Concentration_ppm >= 5, 
+                                                      true = NA, 
+                                                      false = Concentration_ppm))
+```
+
+I will now reexamine the plot
+
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+This looks fine so I will be moving on.
+
+I will now look at `K`
+
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+I see some concerning outliers in the trib histogram so I will be removing the points above or at 6.
+
+```{r}
+Stream = Stream |> mutate(Concentration_ppm = if_else(Element == "K" & # Element is Mg
+                                                        Type != "seep" &  #habitat type isn't seep
+                                                        Concentration_ppm >= 6, 
+                                                      true = NA, 
+                                                      false = Concentration_ppm))
+```
+
+I will now remake the histograms.
+
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+This looks good so I will move on.
+
+```{r}
+Stream |> filter(Element == "Fe" | 
+                                 Element == "Mg") |> 
+
+ggplot(aes(y = Concentration_ppm)) +
+  geom_boxplot(outlier.color = "red") +
+  facet_wrap(~Element + Type)
+```
+
+I do see some outiers marked but I leave them be as they were'nt concerning in the histograms.
+
+I will now look at the `DO_per` variable using the same boxplot method.
+
+```{r}
+ggplot(data = Stream, aes(y = DO_per)) +
+  geom_boxplot(outlier.color = "red")
+```
+Just in case,  I will examine the same plot using a histogram
+```{r}
+ggplot(data = Stream, aes(x = DO_per))+
+  geom_histogram()
+```
+
+There are several outliers so I will use another `arrange()` to examine them
+
+```{r}
+Stream |> arrange(DO_per)
+```
+Since there are a large number of NA values I will refrain from removing the outliers until after I move into my analysis for DO_per as the NA values should remain for my Element and Type analysis.
+
+While examining the dataset I found several NA values in the concentration_ppm column. To prevent errors later on I will remove them here
+
+```{r}
+Stream <- Stream |> filter(Concentration_ppm != "NA")
+```
+
+The variables that I will need in my analysis are the `DO_per`, `Type`, `Element`, and `Concentration_ppm`. Each of these are already in the form that I need, and do not need to have any more changes made to them. As such, I will use the `write.csv()` function to create a new dataset with the updated dataset.
+
+```{r}
+write.csv(Stream, here("Data", "Bazuro_Capstone_Final.csv"), row.names = FALSE)
+```
+
+Here I attempted to use `write.csv()` to create the updated dataset and load it to the Data folder. To do this I used the `here()` function to set the filepath to the project and placed the file into the datafolder
+
+```{r}
+Stream_test = read.csv(here("Data", "Bazuro_Capstone_Final.csv"))
+Stream_test
+```
+
+Now, I will create the plot for the first question: What is the relationship between habitat type and the abundance of the Mg, Na, Fe, and K?
+
+```{r}
+ggplot(data = Stream, aes(x = Concentration_ppm)) +
+  geom_boxplot() +
+  facet_wrap(~Type)
+```
+
+Based on this we can see that the amounts are low in every area aside from the seep type, although there are some notable outliers present in the trib and river plots which may be a sign of significant differences. However, the average for all 4 graphs is around 0, with seep having the highest.
+
+Now I will create a plot for the second question: What is the relationship between the trace elements and the percent dissolved oxygen?
+
+```{r}
+ggplot(data = Stream, aes(x = DO_per, y = Concentration_ppm)) +
+  geom_point() +
+  facet_wrap(~Element)
+```
+
+The averages for these is harder to tell but appears to be in the high 90s for each graph.
+
+I will now create the summary statistics for the first model.
+
+```{r}
+Stream_sum <- Stream |> group_by(Type, Element) |> summarise(
+  sd_concentration = sd(Concentration_ppm, na.rm = T),
+  mean_concentration = mean(Concentration_ppm, na.rm = T)
+)
+glimpse(Stream_sum)
+view(Stream_sum)
+```
+
+This gives the mean and std deviations for each combination of element and We can see that there is evidence of some significant differences in the variables for the first question.
+
+I will now create the summary statistics for the second model
+
+```{r}
+Stream_sum2 <- Stream |> summarise(
+  sd_concentration = sd(Concentration_ppm, na.rm = T),
+  mean_concentration = mean(Concentration_ppm, na.rm = T))
+view(Stream_sum2)
+```
+
+I have not grouped this by anything as we will be examining the relationship between DO_per and Concentration_ppm and they are both continous variables.

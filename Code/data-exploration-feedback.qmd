@@ -8,11 +8,11 @@ editor: visual
 
 1.  Think about re-naming your data exploration `.qmd` file with name that is more descriptive of what it is.
 
-2. On line 24 you note that you examined the dataset, but I don't see you using any functions to do so.
+check 2.  On line 24 you note that you examined the dataset, but I don't see you using any functions to do so.
 
-3. Be careful in deciding you that you have outliers among your elements. Remember that your plot has everything on the same scale for element concentration, so you might wish to actually plot each element separately to see how they look without also being scaled with the other elements.
+check 3.  Be careful in deciding you that you have outliers among your elements. Remember that your plot has everything on the same scale for element concentration, so you might wish to actually plot each element separately to see how they look without also being scaled with the other elements.
 
-4. Line 76 - if you don't want to save a new object as Streamplot, you can just pipe right into the ggplot as thus:
+check 4.  Line 76 - if you don't want to save a new object as Streamplot, you can just pipe right into the ggplot as thus:
 
 ```{r}
 Stream |> filter(Element == "Fe" | 
@@ -22,6 +22,7 @@ ggplot(aes(y = Concentration_ppm)) +
   geom_boxplot(outlier.color = "red") +
   facet_wrap(~Element + Type)
 ```
+
 Again though, you have the same issue with scale on your y-axis that makes it really hard to see what is happening. Try separating and viewing each element, perhaps also getting histograms:
 
 ```{r}
@@ -29,13 +30,14 @@ Stream %>% filter(Element == "Fe") %>% ggplot(aes(Concentration_ppm))+
   geom_histogram()+
   facet_wrap(~Type)
 ```
-Consider doing this for each of  your elements.
 
-5. Line 84 - when you decide to get rid of your outliers, are there any biological justifications you can make? If you research Mg concentrations in nature, are these values outside of what we might expect to see? Similarly, on line 105 you note that the outliers that remain aren't "as concerning" as the ones you removed - why? What is your justification?
+Consider doing this for each of your elements.
 
-6. Line 125 - We learned to do this in class using the here package so that you would not need to use getwd() or setwd() which can result in problems (as you note about running the whole code chunk at once). Please adjust using the methods we have discussed.Also, you left `.csv` off of your file name when you wrote the file.
+check 5.  Line 84 - when you decide to get rid of your outliers, are there any biological justifications you can make? If you research Mg concentrations in nature, are these values outside of what we might expect to see? Similarly, on line 105 you note that the outliers that remain aren't "as concerning" as the ones you removed - why? What is your justification?
 
-7. You did not attempt to create any summary statistics as part of your data exploration. For example, you might have done this:
+check 6.  Line 125 - We learned to do this in class using the here package so that you would not need to use getwd() or setwd() which can result in problems (as you note about running the whole code chunk at once). Please adjust using the methods we have discussed.Also, you left `.csv` off of your file name when you wrote the file.
+
+7.  You did not attempt to create any summary statistics as part of your data exploration. For example, you might have done this:
 
 ```{r}
 Stream_sum <- Stream %>% group_by(Element, Type) %>% 
@@ -43,6 +45,7 @@ Stream_sum <- Stream %>% group_by(Element, Type) %>%
     mean_concentration = mean(Concentration_ppm, na.rm = T),
     sd_concentration = sd(Concentration_ppm, na.rm = T)) %>% View()
 ```
-8. I would like to see more histograms of your data so that you can get a look at the data as a picture; primates are highly visual and good at pattern recognition so looking at pictures can really help you understand your data.
 
-9. On line 140 you introduce some basic data analysis - I instructed that any analysis you do should be in a different .qmd file as all you are suppossed to be doing in this assignment is exploring your data, not statistics. I did not look through those analyses. Please make sure in your next draft that you only have data exploriation in this file and no statistical analysis.
+check 8.  I would like to see more histograms of your data so that you can get a look at the data as a picture; primates are highly visual and good at pattern recognition so looking at pictures can really help you understand your data.
+
+check 9.  On line 140 you introduce some basic data analysis - I instructed that any analysis you do should be in a different .qmd file as all you are suppossed to be doing in this assignment is exploring your data, not statistics. I did not look through those analyses. Please make sure in your next draft that you only have data exploriation in this file and no statistical analysis.
