@@ -1,0 +1,20 @@
+---
+title: "Final Report"
+author: "Andrew Bazuro"
+format: html
+editor: visual
+---
+
+##Introduction
+The dataset that has been used for this project examines metal concentrations and other abiotic factors in the Seep water of the Wester Brooks Range of Alaska from 2022 to 2023. The study focuses on the Salmon watershed and the community of Kiana which survive off of fish harvested from the watershed. Several nearby watershed were also sampled including Timber Creek, Tukpahlearik Creek, Salmon River, Kallarichuk River, Kobuk River, and Devil's Lake. It specifically contains measurements of pH, conductivity, dissolved oxygen, and turbidity. The dataset 4,368 rows and 17 columns of data.
+
+###Steps for analysis
+To prepare the dataset for analysis I first loaded it in and made all appropriate variables into factor variables in preparation for tidying. I then filtered out the data so that only the four elements that were necessary for analysis remained. This left the dataset with only the four necessary elements (Fe, K, Na, and Mg) and 832 rows. 
+
+####Outliers
+After filtering the dataset was examined for outliers and issues in normality, of which there were several in the dataset. After removing a few of the concerning outliers the dataset still had issues in normality and far more outliers which appeared to be valid data points even if they were outside of the acceptable range and had been flagged. As such, to solve this issue the analysis was run with a glm model to allow more leeway from the normality assumption. The changed dataset was then saved under the name `Bazuro_Capstone_Final.csv` and can be found in the `data` folder.
+
+##Analysis
+
+### Element Type Analysis
+The first analysis performed was on the

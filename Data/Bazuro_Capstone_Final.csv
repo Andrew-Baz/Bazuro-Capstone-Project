@@ -252,9 +252,11 @@
 67.64146,-159.95181,202,"Salmon","trib",NA,"Anaktok_MainStem","7/23/2023","Unfiltered",8.1,717,13.6,18.5,97.5,10.13,"K",0.3155
 67.64146,-159.95181,202,"Salmon","trib",NA,"Anaktok_MainStem","7/23/2023","Unfiltered",8.1,717,13.6,18.5,97.5,10.13,"Fe",3.9025
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",3.6,2349,8.6,9.42,94.5,10.97,"Na",2.3208
+67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",3.6,2349,8.6,9.42,94.5,10.97,"Mg",206.0316
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",3.6,2349,8.6,9.42,94.5,10.97,"K",0.9333
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",3.6,2349,8.6,9.42,94.5,10.97,"Fe",32.5378
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",3.6,2349,8.6,9.42,94.5,10.97,"Na",2.2577
+67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",3.6,2349,8.6,9.42,94.5,10.97,"Mg",204.4078
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",3.6,2349,8.6,9.42,94.5,10.97,"K",0.9297
 67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",3.6,2349,8.6,9.42,94.5,10.97,"Fe",33.6736
 67.666458,-159.91105,522,"Salmon","seep",NA,"Anaktok_Seep","7/23/2023","Filtered",3,2386,18.2,1.34,95.2,9.03,"Na",0.7352
@@ -438,6 +440,7 @@ NA,NA,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,N
 NA,NA,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Mg",1033.8301
 NA,NA,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"K",4.8956
 NA,NA,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",51.1812
+NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Na",6.8682
 NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"K",2.8409
 NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",1.4486
 NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Na",2.6818
@@ -522,6 +525,7 @@ NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,N
 67.37448,-160.41746,220,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.5,NA,NA,NA,NA,NA,"Fe",0.6121
 67.37448,-160.42004,213,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.44,126,NA,NA,NA,NA,"Na",0.6655
 67.37448,-160.42004,213,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.44,126,NA,NA,NA,NA,"Mg",1.2717
+67.37448,-160.42004,213,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.44,126,NA,NA,NA,NA,"K",6.4375
 67.37448,-160.42004,213,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.44,126,NA,NA,NA,NA,"Fe",5.942
 67.374603,-160.42195,207,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Na",1.8485
 67.374603,-160.42195,207,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Mg",8.1266
@@ -533,11 +537,13 @@ NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,N
 67.3749,-160.415117,223,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.39,NA,NA,NA,NA,NA,"Fe",11.2568
 67.375083,-160.422425,202,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Na",2.4701
 67.375083,-160.422425,202,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Mg",6.2055
+67.375083,-160.422425,202,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"K",11.2876
 67.375083,-160.422425,202,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",15.333
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.7,2189,NA,NA,NA,NA,"Na",4.6949
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.7,2189,NA,NA,NA,NA,"Mg",91.0655
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.7,2189,NA,NA,NA,NA,"K",2.5963
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.7,2189,NA,NA,NA,NA,"Fe",14.8105
+67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,1622,NA,NA,NA,NA,"Na",5.2192
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,1622,NA,NA,NA,NA,"Mg",81.2477
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,1622,NA,NA,NA,NA,"K",2.9837
 67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,1622,NA,NA,NA,NA,"Fe",32.6828
@@ -773,6 +779,7 @@ NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,N
 67.357704,-159.715326,69,"Salmon","river",79.18,"Salmon_MainStem","8/13/2023","Filtered",7.39,579,8.9,NA,NA,NA,"Mg",30.1834
 67.357704,-159.715326,69,"Salmon","river",79.18,"Salmon_MainStem","8/13/2023","Filtered",7.39,579,8.9,NA,NA,NA,"K",0.3564
 67.357704,-159.715326,69,"Salmon","river",79.18,"Salmon_MainStem","8/13/2023","Filtered",7.39,579,8.9,NA,NA,NA,"Fe",0.1589
+67.15528,-159.463,12,"Salmon","river",120.07,"Salmon_at_Mouth","8/14/2023","Filtered",NA,NA,NA,NA,NA,NA,"Na",5.289
 67.15528,-159.463,12,"Salmon","river",120.07,"Salmon_at_Mouth","8/14/2023","Filtered",NA,NA,NA,NA,NA,NA,"Mg",19.5836
 67.15528,-159.463,12,"Salmon","river",120.07,"Salmon_at_Mouth","8/14/2023","Filtered",NA,NA,NA,NA,NA,NA,"K",1.126
 67.15528,-159.463,12,"Salmon","river",120.07,"Salmon_at_Mouth","8/14/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",1.7375
@@ -800,6 +807,7 @@ NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,N
 67.37467,-160.42457,198,"Timber Creek","trib",NA,"Orange pool","8/4/2023","Filtered",6.81,2187,11,NA,NA,NA,"Mg",122.7594
 67.37467,-160.42457,198,"Timber Creek","trib",NA,"Orange pool","8/4/2023","Filtered",6.81,2187,11,NA,NA,NA,"K",0.3915
 67.37467,-160.42457,198,"Timber Creek","trib",NA,"Orange pool","8/4/2023","Filtered",6.81,2187,11,NA,NA,NA,"Fe",0.1803
+67.37507,-160.42237,203,"Timber Creek","trib",NA,"Darcy TC8","8/5/2023","Filtered",6.53,1427,NA,NA,NA,NA,"Na",5.2554
 67.37507,-160.42237,203,"Timber Creek","trib",NA,"Darcy TC8","8/5/2023","Filtered",6.53,1427,NA,NA,NA,NA,"Mg",15.326
 67.37507,-160.42237,203,"Timber Creek","trib",NA,"Darcy TC8","8/5/2023","Filtered",6.53,1427,NA,NA,NA,NA,"K",0.9462
 67.37507,-160.42237,203,"Timber Creek","trib",NA,"Darcy TC8","8/5/2023","Filtered",6.53,1427,NA,NA,NA,NA,"Fe",0.2897
