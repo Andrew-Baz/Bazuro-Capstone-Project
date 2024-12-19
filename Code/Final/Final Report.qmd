@@ -45,7 +45,7 @@ The analysis focused on the question: What is the effect of different habitat ty
 
 The null hypothesis for the first analysis was "There is no relationship between `Element`, `Type`, and the `Concentration_ppm`
 
-The alternative hypothesis for the first analysis was that: "There will be a significant relationship between `Element`, `Type`, and `Concentration_ppm`"
+The alternative hypothesis for the first analysis was that: "There will be a significant relationship between `Element`, `Type`, and `Concentration_ppm`" Specifically, it is expected that there will be lower trace elements and dissolved oxygen in the seep (Michaud 2023).
 
 The response variable in this analysis was `Concentration_ppm` which is a continous variable. The predictor variables were `Element` and `Type` which were both categorical variables.
 
@@ -56,9 +56,9 @@ The response variable in this analysis was `Concentration_ppm` which is a contin
 We already examined the plots for outliers in the Data exploration so I won't do that here. However, I will still place a histogram here to estimate the means of each section. I will start by examining `Mg`
 
 ```{r}
-Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+ #filters for only mg
   geom_histogram()+
-  facet_wrap(~Type)
+  facet_wrap(~Type) #creates individual plots for each body of water
 ```
 
 Here I see no outliers and will now create a boxplot to examine the mean.
@@ -76,7 +76,7 @@ The mean for most graphs is close to zero, while the median in the seep is close
 I will now examine `Na`
 
 ```{r}
-Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+ #filters for only Na
   geom_histogram()+
   facet_wrap(~Type)
 ```
@@ -96,7 +96,7 @@ Based on the means I would estimate there to be several significant differences.
 I will now examine `K`
 
 ```{r}
-Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+ #filters for only K
   geom_histogram()+
   facet_wrap(~Type)
 ```
@@ -116,7 +116,7 @@ Based on this plot I would expect a significant difference between the seep and 
 I will now examine `Fe`
 
 ```{r}
-Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+ #Filters for only Fe
   geom_histogram()+
   facet_wrap(~Type)
 ```
@@ -166,7 +166,7 @@ summary(mod1)
 Our intercept here is the ElementFe predictor which is significantly different from the seep type and the three other elements when they are in the seep.
 
 ```{r}
-phc1 <- glht(mod1, linfct = mcp(Type = "Tukey", Element = "Tukey"))
+phc1 <- glht(mod1, linfct = mcp(Type = "Tukey", Element = "Tukey")) #runs a TukeyHSD for both Type, and Element.
 summary(phc1)
 ```
 
@@ -174,14 +174,15 @@ Here we can see that there is a significant effect between seep_control and lake
 
 ### Replot to show Relationships
 
-I will now create a plot using the means and std errors of each of the commbinations.
+I will now create a final plot.
 
 ```{r}
+#| output: false
+#| warning: false
 sum_stream <- Stream |> group_by(Element, Type) |> summarise(
   mean_Concentration = mean(Concentration_ppm),
     se_Concentration = sd(Concentration_ppm)/sqrt(n())
 )
-sum_stream
 ```
 
 ```{r}
@@ -189,14 +190,14 @@ ggplot(sum_stream, aes(x = Type, y = mean_Concentration, colour = Element, group
   geom_point() +
   geom_line() +
   geom_errorbar(aes(ymin = mean_Concentration - se_Concentration,
-                    ymax = mean_Concentration + se_Concentration), width = 0.1) +
-  labs(title = "Mean Concentration Explained by Type and Grouped by Element", x = "Body of Water", y = "Mean Concentration (ppm)") +
+                    ymax = mean_Concentration + se_Concentration), width = 0.1) + #creates error bars
+  labs(title = "Mean Concentration Explained by Type and Grouped by Element", x = "Body of Water", y = "Mean Concentration (ppm)") + #adds in title and labels axes
   theme_bw()
 ```
 
 ### Results
 
-Overall, we reject the null hypothesis that there was no relationship between `Element`, `Type`, and the `Concentration_ppm`. As we found that the `Element` (F = 35.705, p = 2.2 E-16) `Type` (F = 43.809, p = 2.2e -16), and Interaction (F = 18.339, p = 2.2e-16) had a significant and positive effect on the `Concentration_ppm`. Our specific significant results were between seep_control and lake, seep and river, tributary and seep, and wetland and seep.
+Overall, we reject the null hypothesis that there was no relationship between `Element`, `Type`, and the `Concentration_ppm`. As we found that the `Element` (F = 35.705, p = 2.2 E-16) `Type` (F = 43.809, p = 2.2e -16), and Interaction (F = 18.339, p = 2.2e-16) had a significant and positive effect on the `Concentration_ppm`. Our specific significant results were between seep_control and lake, seep and river, tributary and seep, and wetland and seep. These results were not as we expected, as the seep was shown to have much higher mean concentrations than the other bodies of water present. This was most likely due to the seeps identity as a location where there is immense biodiversity and numerous nutrients for growth (Han 2023).
 
 ## DO_Per Analysis
 
@@ -204,9 +205,9 @@ The analysis focused on the question: Is there a difference in `DO_per` for diff
 
 The null hypothesis for the second analysis was "There is no relationship between the `Concentration_ppm` of `Fe` and the `DO_per`.
 
-The alternative hypothesis for the second analysis was "There will be a significant relationship between the `Conectration_ppm` of `Fe` and the `DO_per`.
+The alternative hypothesis for the second analysis was "There will be a significant relationship between the `Conectration_ppm` of `Fe` and the `DO_per`. Specifically, a negative relationship as a higher concentration of Fe should correlate to a lower Dissolved Oxygen as any Fe in the water will oxidize when in the presence of high Dissolved Oxygen (Kohler 2021).
 
-The response variable was `DO_per`
+The response variable was `DO_per` which is a continous variable, while the predictor variable was `Concentration_ppm` which is also a continous variable.
 
 ### Plot and Guess Relationships
 
@@ -288,6 +289,8 @@ ggplot(Stream2, aes(x = DO_per, y = Concentration_ppm)) +
 
 ### Results
 
+Overall, we reject the null hypothesis that there was no relationship between `Concentration_ppm`, and the `DO_per` when the element is Iron.. As we found that there was a significant relationship between the two (F = 37.986, p = 1.877e-09). These results were as we expected as the relationship between the two was shown to be negative as the model had a slope of -2.8 and an intercept of 288. This supports the earlier reasoning that the two variables will have an inverse relationship as when there is Fe in the water it will oxidize and decrease the Oxygen present (Kohler 2021).
+
 # Challenges
 
 ## Overall challenges
@@ -300,4 +303,12 @@ The main difficulties came in how I had to perform a tukeyHSD on a glm with mult
 
 ## Challenges in analysis 2
 
-When I started analysis 2 my overall question was very different and had to be trimmed down to a simpler question as due to the structure of the data it would be impossible to look at more than one element without running an ANCOVA, which would be on top of using the glm model to account for the issues in normality.
+When I started analysis 2 my overall question was very different and had to be trimmed down to a simpler question as due to the structure of the data it would be impossible to look at more than one element without running an ANCOVA, which would be on top of using the glm model to account for the issues in normality. Due to this, I had to lower the scale of the question to only focus on the relationship of Fe and dissolved oxygen.
+
+# Works cited
+
+Alexander B Michaud, Rémi O Massé, David Emerson, Microbial iron cycling is prevalent in water-logged Alaskan Arctic tundra habitats, but sensitive to disturbance, FEMS Microbiology Ecology, Volume 99, Issue 3, March 2023, fiad013, https://doi.org/10.1093/femsec/fiad013
+
+Han Yingchun, Zhang Chuwen, Zhao Zhuoming, A comprehensive Genomic Catalog From Global Cold Seeps. Scientific Data, Volume 10, Article 596, September 2023.  https://www.nature.com/articles/s41597-023-02521-4
+
+Kohler Inga, Martinez Raul, Piatka David. How are oxygen Budgets Influenced by Dissolved Iron an dGrowth of Oxygenic Phototrophs in an iron-rich spring system? Initital Results from the Espan Spring in Furth Germany. Biogeosciences, Volume 18, 4535-4548, August 2021, https://bg.copernicus.org/articles/18/4535/2021/bg-18-4535-2021.pdf
