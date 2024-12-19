@@ -1,0 +1,208 @@
+"Lat","Lon","Elev_masl","Basin","Type","River_km","FieldName","Date","Filtration","pH","EC_uS_cm","Temp_C","Turbidity_FNU","DO_per","DO_mg_L","Element","Concentration_ppm"
+67.776,-159.3493,564,"Salmon","river",0,"Salmon_Headwaters","8/14/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.1107
+67.6397,-159.8054,158,"Salmon","trib",39.25,"Sheep_Crk","8/15/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.1567
+67.72531,-159.80045,201,"Salmon","trib",27.13,"Irontok","8/15/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",9.3645
+67.7771,-159.543,370,"Salmon","river",9.6,"Upper_Salmon","8/15/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.0242
+67.7813,-159.7253,282,"Salmon","trib",18.07,"Kanaktok","8/15/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",4.351
+67.4944,-159.7942,117,"Salmon","river",58.14,"Salmon_MainStem","8/16/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",1.5688
+67.6397,-159.8086,148,"Salmon","trib",39.25,"Anaktok","8/16/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",2.7305
+67.4296,-159.8047,72,"Salmon","trib",67.75,"Nikok","8/19/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.1537
+67.1852,-159.5182,12,"Salmon","river",111.28,"Salmon_MainStem","8/20/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.8103
+67.244,-159.6748,25,"Salmon","trib",97.59,"Kitlik","8/20/2022","Unfiltered",NA,NA,NA,NA,NA,NA,"Fe",0.1888
+67.413028,-160.357362,413,"Tukpahlearik Creek","seep",NA,"Big_Burn","7/15/2023","Filtered",3.61,4059,9.9,13.15,90.6,10.07,"Fe",172.4303
+67.413028,-160.357362,413,"Tukpahlearik Creek","seep",NA,"Big_Burn","7/15/2023","Unfiltered",3.61,4059,9.9,13.15,90.6,10.07,"Fe",193.743
+67.41308,-160.355468,426,"Tukpahlearik Creek","seep",NA,"Big_Burn","7/15/2023","Filtered",6.68,2650,2.7,0.4,48.9,6.57,"Fe",19.4123
+67.41308,-160.355468,426,"Tukpahlearik Creek","seep",NA,"Big_Burn","7/15/2023","Unfiltered",6.68,2650,2.7,0.4,48.9,6.57,"Fe",8.3038
+67.414038,-160.355742,425,"Tukpahlearik Creek","seep_control",NA,"Big_Burn_Control","7/15/2023","Filtered",8.07,573,6.3,0.36,91.4,11.27,"Fe",0.0818
+67.414038,-160.355742,425,"Tukpahlearik Creek","seep_control",NA,"Big_Burn_Control","7/15/2023","Unfiltered",8.07,573,6.3,0.36,91.4,11.27,"Fe",0.0224
+67.439783,-160.366151,216,"Tukpahlearik Creek","river",NA,"Tukpah_Lower","7/15/2023","Filtered",8.2,684,7.5,6.67,96.9,11.59,"Fe",0.2804
+67.439783,-160.366151,216,"Tukpahlearik Creek","river",NA,"Tukpah_Lower","7/15/2023","Unfiltered",8.2,684,7.5,6.67,96.9,11.59,"Fe",1.9381
+67.466581,-160.371304,365,"Tukpahlearik Creek","seep",NA,"Tukpah_Trib_Seep","7/16/2023","Filtered",3.2,5233,1.2,9.4,27.7,3.68,"Fe",915.378
+67.466581,-160.371304,365,"Tukpahlearik Creek","seep",NA,"Tukpah_Trib_Seep","7/16/2023","Unfiltered",3.2,5233,1.2,9.4,27.7,3.68,"Fe",898.6931
+67.46716,-160.373003,389,"Tukpahlearik Creek","trib",NA,"Tukpah_Trib","7/16/2023","Filtered",7.91,383,4.5,1.14,95,12.29,"Fe",0.0909
+67.47509,-160.32401,295,"Tukpahlearik Creek","seep",NA,"Big_Tukpah_Burn","7/16/2023","Filtered",2.94,6925,15.1,0.66,79.5,7.8,"Fe",867.2782
+67.47509,-160.32401,295,"Tukpahlearik Creek","seep",NA,"Big_Tukpah_Burn","7/16/2023","Unfiltered",2.94,6925,15.1,0.66,79.5,7.8,"Fe",849.2191
+67.497186,-160.299583,314,"Tukpahlearik Creek","seep_control",NA,"Big_Tukpah_Burn_Control","7/16/2023","Filtered",7.84,805,2.9,14.7,88.6,11.94,"Fe",0.7236
+67.497186,-160.299583,314,"Tukpahlearik Creek","seep_control",NA,"Big_Tukpah_Burn_Control","7/16/2023","Unfiltered",7.84,805,2.9,14.7,88.6,11.94,"Fe",3.2115
+67.53213,-160.24079,340,"Tukpahlearik Creek","river",NA,"Upper_Tukpah_Clear","7/16/2023","Filtered",8.3,592,4.7,0.37,92,11.82,"Fe",0.1788
+67.53213,-160.24079,340,"Tukpahlearik Creek","river",NA,"Upper_Tukpah_Clear","7/16/2023","Unfiltered",8.3,592,4.7,0.37,92,11.82,"Fe",0.1149
+67.530939,-160.240869,340,"Tukpahlearik Creek","trib",NA,"Upper_Tukpah_Impaired","7/17/2023","Filtered",7.63,611,2.9,8.62,94.4,12.72,"Fe",0.2267
+67.530939,-160.240869,340,"Tukpahlearik Creek","trib",NA,"Upper_Tukpah_Impaired","7/17/2023","Unfiltered",7.63,611,2.9,8.62,94.4,12.72,"Fe",0.8735
+67.561729,-160.166542,313,"Salmon","trib",NA,"Upper_Noname_Impaired","7/17/2023","Filtered",8.37,672,6.1,7.84,97.1,12.02,"Fe",0.0719
+67.561729,-160.166542,313,"Salmon","trib",NA,"Upper_Noname_Impaired","7/17/2023","Unfiltered",8.37,672,6.1,7.84,97.1,12.02,"Fe",1.7827
+67.609129,-160.00884,238,"Salmon","trib",NA,"North_Trib_Noname","7/18/2023","Filtered",7.95,438.9,4.9,15.58,93.3,11.95,"Fe",0.2765
+67.609129,-160.00884,238,"Salmon","trib",NA,"North_Trib_Noname","7/18/2023","Unfiltered",7.95,438.9,4.9,15.58,93.3,11.95,"Fe",1.9107
+67.639684,-159.80552,167,"Salmon","trib",39.25,"Sheep_Crk","7/19/2023","Filtered",8.55,437.9,6.4,6.93,97.1,11.96,"Fe",0.1315
+67.639684,-159.80552,167,"Salmon","trib",39.25,"Sheep_Crk","7/19/2023","Unfiltered",8.55,437.9,6.4,6.93,97.1,11.96,"Fe",1.2867
+67.639797,-159.805962,167,"Salmon","river",39.25,"Salmon_at_Sheep","7/19/2023","Filtered",7.71,641,6,26.22,97,12.05,"Fe",0.2044
+67.639797,-159.805962,167,"Salmon","river",39.25,"Salmon_at_Sheep","7/19/2023","Unfiltered",7.71,641,6,26.22,97,12.05,"Fe",4.1387
+67.776319,-159.535097,388,"Salmon","river",9.24,"Upper_Salmon","7/20/2023","Filtered",8.33,228,6.7,0.54,94.3,11.53,"Fe",0.0969
+67.776319,-159.535097,388,"Salmon","river",9.24,"Upper_Salmon","7/20/2023","Unfiltered",8.33,228,6.7,0.54,94.3,11.53,"Fe",0.3226
+67.839791,-159.398797,407,"Aklumayuak","trib",NA,"Auk_Trib","7/20/2023","Filtered",8.5,344.3,10.1,1.43,94,10.59,"Fe",0.1418
+67.839791,-159.398797,407,"Aklumayuak","trib",NA,"Auk_Trib","7/20/2023","Unfiltered",8.5,344.3,10.1,1.43,94,10.59,"Fe",0.5594
+67.688643,-159.835288,196,"Salmon","trib",32.1,"Acidtok","7/22/2023","Filtered",4.7,1332,6.8,32.3,94.1,11.47,"Fe",21.8576
+67.688643,-159.835288,196,"Salmon","trib",32.1,"Acidtok","7/22/2023","Unfiltered",4.7,1332,6.8,32.3,94.1,11.47,"Fe",27.2955
+67.68871,-159.8352,196,"Salmon","river",32.1,"Salmon_at_Acidtok","7/22/2023","Filtered",7.4,575,11.2,23.2,97.8,10.72,"Fe",0.0892
+67.68871,-159.8352,196,"Salmon","river",32.1,"Salmon_at_Acidtok","7/22/2023","Unfiltered",7.4,575,11.2,23.2,97.8,10.72,"Fe",3.6595
+67.725098,-159.800353,224,"Salmon","river",27.13,"Salmon_at_Irontok","7/22/2023","Filtered",8.1,94.9,11.6,16.2,97.1,10.55,"Fe",0.0251
+67.725098,-159.800353,224,"Salmon","river",27.13,"Salmon_at_Irontok","7/22/2023","Unfiltered",8.1,94.9,11.6,16.2,97.1,10.55,"Fe",2.5116
+67.725281,-159.800708,224,"Salmon","trib",27.13,"Irontok","7/22/2023","Filtered",7.7,806,8.7,42.6,97.3,11.3,"Fe",0.13
+67.725281,-159.800708,224,"Salmon","trib",27.13,"Irontok","7/22/2023","Unfiltered",7.7,806,8.7,42.6,97.3,11.3,"Fe",7.2544
+67.781221,-159.72583,280,"Salmon","river",18.07,"Salmon_at_Kanaktok","7/22/2023","Filtered",8.4,217,10.9,2.61,97.5,10.77,"Fe",0.0751
+67.781221,-159.72583,280,"Salmon","river",18.07,"Salmon_at_Kanaktok","7/22/2023","Unfiltered",8.4,217,10.9,2.61,97.5,10.77,"Fe",0.1689
+67.781221,-159.72583,280,"Salmon","trib",18.07,"Kanaktok","7/22/2023","Filtered",7.4,935,10.1,36.8,95.9,10.77,"Fe",2.3065
+67.781221,-159.72583,280,"Salmon","trib",18.07,"Kanaktok","7/22/2023","Unfiltered",7.4,935,10.1,36.8,95.9,10.77,"Fe",8.4267
+67.640254,-159.809017,167,"Salmon","trib",39.25,"Anaktok","7/23/2023","Filtered",7.8,736,14.9,17.8,98.3,9.92,"Fe",0.1402
+67.640254,-159.809017,167,"Salmon","trib",39.25,"Anaktok","7/23/2023","Unfiltered",7.8,736,14.9,17.8,98.3,9.92,"Fe",3.5665
+67.64121,-159.90965,193,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",7.5,401.7,11.8,6.22,95.8,10.4,"Fe",2.8472
+67.64121,-159.90965,193,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",7.5,401.7,11.8,6.22,95.8,10.4,"Fe",3.8265
+67.64124,-159.89554,190,"Salmon","trib",NA,"Anaktok_Trib_Unimpaired","7/23/2023","Filtered",7.6,290.5,10.9,1.55,96.5,10.67,"Fe",1.1974
+67.64124,-159.89554,190,"Salmon","trib",NA,"Anaktok_Trib_Unimpaired","7/23/2023","Unfiltered",7.6,290.5,10.9,1.55,96.5,10.67,"Fe",1.7898
+67.64126,-159.950152,200,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",6.8,777,5.4,5.26,94.8,11.98,"Fe",1.1933
+67.64126,-159.950152,200,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",6.8,777,5.4,5.26,94.8,11.98,"Fe",1.5279
+67.64146,-159.95181,202,"Salmon","trib",NA,"Anaktok_MainStem","7/23/2023","Filtered",8.1,717,13.6,18.5,97.5,10.13,"Fe",0.1799
+67.64146,-159.95181,202,"Salmon","trib",NA,"Anaktok_MainStem","7/23/2023","Unfiltered",8.1,717,13.6,18.5,97.5,10.13,"Fe",3.9025
+67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Filtered",3.6,2349,8.6,9.42,94.5,10.97,"Fe",32.5378
+67.641626,-159.910634,192,"Salmon","trib",NA,"Anaktok_Trib_Impaired","7/23/2023","Unfiltered",3.6,2349,8.6,9.42,94.5,10.97,"Fe",33.6736
+67.666458,-159.91105,522,"Salmon","seep",NA,"Anaktok_Seep","7/23/2023","Filtered",3,2386,18.2,1.34,95.2,9.03,"Fe",65.8275
+67.666458,-159.91105,522,"Salmon","seep",NA,"Anaktok_Seep","7/23/2023","Unfiltered",3,2386,18.2,1.34,95.2,9.03,"Fe",68.5598
+67.430029,-159.803929,86,"Salmon","river",67.75,"Salmon_at_Nikok","7/24/2023","Filtered",8.1,465.2,11.7,10,93.1,10.11,"Fe",0.1241
+67.430029,-159.803929,86,"Salmon","river",67.75,"Salmon_at_Nikok","7/24/2023","Unfiltered",8.1,465.2,11.7,10,93.1,10.11,"Fe",1.8744
+67.43047,-159.80539,88,"Salmon","trib",67.75,"Nikok","7/24/2023","Filtered",7.93,201,12.6,2.54,97.7,10.4,"Fe",0.0196
+67.43047,-159.80539,88,"Salmon","trib",67.75,"Nikok","7/24/2023","Unfiltered",7.93,201,12.6,2.54,97.7,10.4,"Fe",2.97
+67.519762,-159.776273,115,"Salmon","trib",54.77,"Noname","7/24/2023","Filtered",8,285.7,10.3,1.94,98.5,11.02,"Fe",0.0657
+67.519762,-159.776273,115,"Salmon","trib",54.77,"Noname","7/24/2023","Unfiltered",8,285.7,10.3,1.94,98.5,11.02,"Fe",0.2018
+67.521514,-159.767221,116,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Filtered",8,178.2,8,1.33,97.3,11.53,"Fe",0.1761
+67.521514,-159.767221,116,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Unfiltered",8,178.2,8,1.33,97.3,11.53,"Fe",0.6817
+67.521609,-159.767572,116,"Salmon","river",54.77,"Salmon_at_Noname","7/24/2023","Filtered",8.1,611,11.1,18,99.5,10.99,"Fe",0.0833
+67.521609,-159.767572,116,"Salmon","river",54.77,"Salmon_at_Noname","7/24/2023","Unfiltered",8.1,611,11.1,18,99.5,10.99,"Fe",0.1684
+67.564548,-159.78368,132,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Filtered",7.9,375.6,7.9,4.48,97.6,11.59,"Fe",0.0454
+67.564548,-159.78368,132,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Unfiltered",7.9,375.6,7.9,4.48,97.6,11.59,"Fe",0.0835
+67.603271,-159.788073,152,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Filtered",8.3,449.6,6.1,1.56,97.9,12.16,"Fe",0.0627
+67.603271,-159.788073,152,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Unfiltered",8.3,449.6,6.1,1.56,97.9,12.16,"Fe",0.2399
+67.605371,-159.79467,153,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Filtered",7.8,172.3,5.6,2.49,96.7,12.17,"Fe",0.5285
+67.605371,-159.79467,153,"Salmon","trib",NA,"Salmon_Trib_Unimpaired","7/24/2023","Unfiltered",7.8,172.3,5.6,2.49,96.7,12.17,"Fe",1.2168
+67.24411,-159.674401,32,"Salmon","river",97.59,"Salmon_at_Kitlik","7/25/2023","Filtered",8,435.1,12.6,13.2,101,10.67,"Fe",0.0966
+67.24411,-159.674401,32,"Salmon","river",97.59,"Salmon_at_Kitlik","7/25/2023","Unfiltered",8,435.1,12.6,13.2,101,10.67,"Fe",1.8155
+67.244215,-159.674483,33,"Salmon","trib",97.59,"Kitlik","7/25/2023","Filtered",7.9,87.8,11.3,2.24,97.4,10.67,"Fe",0.1403
+67.244215,-159.674483,33,"Salmon","trib",97.59,"Kitlik","7/25/2023","Unfiltered",7.9,87.8,11.3,2.24,97.4,10.67,"Fe",0.4213
+67.102293,-159.742865,3,"Kobuk","river",NA,"Kobuk_below_Salmon","7/26/2023","Filtered",7.9,208.8,15.3,5.16,99.8,9.99,"Fe",0.2001
+67.102293,-159.742865,3,"Kobuk","river",NA,"Kobuk_below_Salmon","7/26/2023","Unfiltered",7.9,208.8,15.3,5.16,99.8,9.99,"Fe",0.7734
+67.105934,-159.740819,4,"Kallarichuk","river",NA,"Kallarichuk","7/26/2023","Filtered",8,91.7,10.3,1.16,99.4,11.17,"Fe",0.0831
+67.105934,-159.740819,4,"Kallarichuk","river",NA,"Kallarichuk","7/26/2023","Unfiltered",8,91.7,10.3,1.16,99.4,11.17,"Fe",0.269
+67.15624,-159.45733,11,"Kobuk","river",NA,"Kobuk_above_Salmon","7/26/2023","Filtered",7.9,156.7,13.7,3.65,98.8,10.23,"Fe",0.1289
+67.15624,-159.45733,11,"Kobuk","river",NA,"Kobuk_above_Salmon","7/26/2023","Unfiltered",7.9,156.7,13.7,3.65,98.8,10.23,"Fe",0.8394
+67.161168,-159.450558,7,"Salmon","river",119.27,"Salmon_at_Mouth","7/26/2023","Filtered",7.9,364.3,13.6,5.85,98.1,10.18,"Fe",0.0494
+67.161168,-159.450558,7,"Salmon","river",119.27,"Salmon_at_Mouth","7/26/2023","Unfiltered",7.9,364.3,13.6,5.85,98.1,10.18,"Fe",0.3739
+67.170193,-159.480776,18,"Salmon","trib",NA,"Salmon_Trib_Impaired","7/26/2023","Filtered",7.8,206.3,17.1,1.38,82.8,7.93,"Fe",0.1412
+67.170193,-159.480776,18,"Salmon","trib",NA,"Salmon_Trib_Impaired","7/26/2023","Unfiltered",7.8,206.3,17.1,1.38,82.8,7.93,"Fe",0.3823
+67.180747,-159.510777,18,"Salmon","trib",112,"BeaverFever","7/26/2023","Filtered",7.1,124.8,14.4,NA,54.5,5.47,"Fe",3.9286
+67.180747,-159.510777,18,"Salmon","trib",112,"BeaverFever","7/26/2023","Unfiltered",7.1,124.8,14.4,NA,54.5,5.47,"Fe",11.0374
+67.181521,-159.509534,15,"Salmon","river",112,"Salmon_at_BeaverFever","7/26/2023","Filtered",8,368,12.1,7.77,97.9,10.52,"Fe",0.1232
+67.181521,-159.509534,15,"Salmon","river",112,"Salmon_at_BeaverFever","7/26/2023","Unfiltered",8,368,12.1,7.77,97.9,10.52,"Fe",1.1675
+66.880217,-162.50548,24,"Kotz","lake",NA,"Devil's_Lake","7/27/2023","Filtered",9.1,72,19.8,3.02,101,9.24,"Fe",0.8179
+66.880217,-162.50548,24,"Kotz","lake",NA,"Devil's_Lake","7/27/2023","Unfiltered",9.1,72,19.8,3.02,101,9.24,"Fe",1.3474
+67.383,-160.411,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",429.112
+67.38332,-160.41189,301,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",8.15,1228,NA,NA,NA,NA,"Fe",0.0058
+67.38692,-160.40831,232,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",8.31,992,NA,NA,NA,NA,"Fe",0.0057
+67.38695,-160.40832,233,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",8.06,1344,NA,NA,NA,NA,"Fe",0.0142
+67.38782,-160.38925,307,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",8.07,1530,NA,NA,NA,NA,"Fe",0.0356
+67.38819,-160.40013,259,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.0091
+67.38841,-160.4059,237,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",8.03,1470,NA,NA,NA,NA,"Fe",0.0167
+NA,NA,NA,"Timber Creek","seep",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",51.1812
+NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",1.4486
+NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.0043
+NA,NA,NA,"Timber Creek","trib",NA,"Timber_Trib","8/5/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.0423
+67.40003,-160.319519,499,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/6/2023","Filtered",2.93,2861,20.1,NA,NA,NA,"Fe",176.8374
+67.400228,-160.319308,490,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/6/2023","Filtered",6.1,4200,5,NA,NA,NA,"Fe",14.7728
+67.400416,-160.31865,492,"Tukpahlearik Creek","trib",NA,"Upper_burn","8/6/2023","Filtered",7.97,759,8.8,NA,NA,NA,"Fe",0.2385
+67.400489,-160.318287,495,"Tukpahlearik Creek","trib",NA,"Upper_burn","8/6/2023","Filtered",8.1,749,8.2,NA,NA,NA,"Fe",0.0719
+67.412903,-160.356893,417,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",5.79,3.27,12,NA,NA,NA,"Fe",6.942
+67.413014,-160.356354,419,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",3.6,10.2,16,NA,NA,NA,"Fe",630.9863
+67.413017,-160.355476,423,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",5.7,10.3,5.3,NA,NA,NA,"Fe",663.698
+67.413031,-160.355362,427,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",5.58,26.32,1.1,NA,NA,NA,"Fe",12.843
+67.413035,-160.355903,420,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",3.7,13.4,14.6,NA,NA,NA,"Fe",1119.4786
+67.413043,-160.356781,418,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",2.89,10.6,16.4,NA,NA,NA,"Fe",481.6891
+67.413056,-160.35561,423,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",6.42,5.17,8.9,NA,NA,NA,"Fe",169.5076
+67.413063,-160.355776,421,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",6.47,7.97,12.1,NA,NA,NA,"Fe",919.8647
+67.413063,-160.356126,422,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",3.03,8.35,15.3,NA,NA,NA,"Fe",296.9862
+67.413079,-160.357376,412,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",6.13,8.47,11.4,NA,NA,NA,"Fe",23.6384
+67.413091,-160.357854,409,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",2.92,8.94,19.6,NA,NA,NA,"Fe",359.9983
+67.413143,-160.358674,401,"Tukpahlearik Creek","seep",NA,"Big_Burn","8/6/2023","Filtered",2.87,21.32,16.5,NA,NA,NA,"Fe",297.0204
+67.414698,-160.374526,275,"Tukpahlearik Creek","trib",NA,"Big_Burn_Trib","8/6/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.1313
+67.37448,-160.41746,220,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.5,NA,NA,NA,NA,NA,"Fe",0.6121
+67.37448,-160.42004,213,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.44,126,NA,NA,NA,NA,"Fe",5.942
+67.374603,-160.42195,207,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",37.8267
+67.3749,-160.415117,223,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.39,NA,NA,NA,NA,NA,"Fe",11.2568
+67.375083,-160.422425,202,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",15.333
+67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",6.7,2189,NA,NA,NA,NA,"Fe",14.8105
+67.375122,-160.421662,205,"Timber Creek","trib",NA,"Timber_Trib","8/7/2023","Filtered",NA,1622,NA,NA,NA,NA,"Fe",32.6828
+67.398758,-160.296859,680,"Timber Creek","trib",NA,"Nikok_fork","8/7/2023","Filtered",3.63,1244,17.9,NA,NA,NA,"Fe",1.9483
+67.399658,-160.293179,717,"Timber Creek","seep",NA,"Nikok_fork","8/7/2023","Filtered",3.21,847,11.1,NA,NA,NA,"Fe",2.4101
+67.399687,-160.293012,718,"Timber Creek","seep",NA,"Nikok_fork","8/7/2023","Filtered",5.61,305,2.2,NA,NA,NA,"Fe",0.0651
+67.39988,-160.318871,509,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/7/2023","Filtered",3.4,2720,19.3,NA,NA,NA,"Fe",114.1103
+67.399921,-160.319109,505,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/7/2023","Filtered",3.31,2180,17.3,NA,NA,NA,"Fe",80.0744
+67.400024,-160.319332,500,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/7/2023","Filtered",3.02,2180,18.5,NA,NA,NA,"Fe",73.5284
+67.40039,-160.318748,491,"Tukpahlearik Creek","seep",NA,"Upper_burn","8/7/2023","Filtered",NA,1556,4,NA,NA,NA,"Fe",237.9676
+67.400769,-160.316694,498,"Tukpahlearik Creek","trib",NA,"Upper_burn","8/7/2023","Filtered",8.15,628,6.8,NA,NA,NA,"Fe",0.0928
+67.779004,-159.663715,313,"Salmon","seep",15.21,"Riverside_seep","8/9/2023","Filtered",6.38,770,10.9,NA,NA,NA,"Fe",0.1029
+67.779236,-159.673571,311,"Salmon","river",15.77,"Upper_Salmon","8/9/2023","Filtered",7.94,330,12,NA,NA,NA,"Fe",0.1084
+67.797134,-159.577688,565,"Salmon","seep",6.77,"Hillside","8/9/2023","Filtered",2.37,6590,2.6,NA,NA,NA,"Fe",125.9172
+67.797199,-159.577836,566,"Salmon","seep",6.77,"Hillside","8/9/2023","Filtered",3,2313,8,NA,NA,NA,"Fe",104.9479
+67.797372,-159.578185,569,"Salmon","seep",6.77,"Hillside","8/9/2023","Filtered",2.4,3080,5,NA,NA,NA,"Fe",105.1753
+67.797399,-159.578279,570,"Salmon","seep",6.77,"Hillside","8/9/2023","Filtered",2.04,5100,4.8,NA,NA,NA,"Fe",87.2935
+67.664621,-159.811102,179,"Salmon","trib",36.09,"Tiktok","8/10/2023","Filtered",4.98,2050,10.1,NA,NA,NA,"Fe",0.3224
+67.664917,-159.811463,178,"Salmon","river",36.09,"Salmon_at_Tiktok","8/10/2023","Filtered",7.41,1347,14.4,NA,NA,NA,"Fe",0.1199
+67.676358,-159.822529,188,"Salmon","trib",34.11,"Salmon_Trib_Unimpaired","8/10/2023","Filtered",7.72,623,11.9,NA,NA,NA,"Fe",0.1569
+67.676597,-159.823949,188,"Salmon","river",34.11,"Salmon_MainStem","8/10/2023","Filtered",7.24,1560,14.5,NA,NA,NA,"Fe",0.2297
+67.688649,-159.83523,198,"Salmon","trib",32.1,"Acidtok","8/10/2023","Filtered",3.91,2511,9.7,NA,NA,NA,"Fe",23.3493
+67.689013,-159.8348,200,"Salmon","river",32.1,"Salmon_at_Acidtok","8/10/2023","Filtered",7.28,1188,13.3,NA,NA,NA,"Fe",0.134
+67.725221,-159.800462,223,"Salmon","trib",27.13,"Irontok","8/10/2023","Filtered",7.14,1563,11,NA,NA,NA,"Fe",0.2021
+67.725345,-159.800196,222,"Salmon","river",27.13,"Salmon_at_Irontok","8/10/2023","Filtered",7.64,1019,NA,NA,NA,NA,"Fe",0.1678
+67.745206,-159.797498,236,"Salmon","river",24.45,"Salmon_MainStem","8/10/2023","Filtered",7.12,662,11.3,NA,NA,NA,"Fe",0.1435
+67.760979,-159.785128,257,"Salmon","trib",22.23,"Salmon_Trib_Unimpaired","8/10/2023","Filtered",7.54,842,7.4,NA,NA,NA,"Fe",0.6644
+67.764883,-159.774206,259,"Salmon","river",21.4,"Salmon_MainStem","8/10/2023","Filtered",7.77,682,11,NA,NA,NA,"Fe",0.0995
+67.776393,-159.733694,280,"Salmon","river",18.79,"Salmon_MainStem","8/10/2023","Filtered",7.67,787,9.8,NA,NA,NA,"Fe",0.6029
+67.780999,-159.724662,282,"Salmon","river",18.07,"Salmon_at_Kanaktok","8/10/2023","Filtered",9.05,250,9.5,NA,NA,NA,"Fe",0.1179
+67.781196,-159.72452,282,"Salmon","trib",18.07,"Kanaktok","8/10/2023","Filtered",7.5,1154,8.6,NA,NA,NA,"Fe",2.3442
+67.521524,-159.767114,120,"Salmon","trib",54.47,"Salmon_Trib_Unimpaired","8/11/2023","Filtered",7.9,290,8.7,NA,NA,NA,"Fe",0.1008
+67.564686,-159.783209,133,"Salmon","trib",49.14,"Salmon_Trib_Unimpaired","8/11/2023","Filtered",7.46,460,10.3,NA,NA,NA,"Fe",0.0992
+67.583579,-159.771798,147,"Salmon","trib",46.77,"Salmon_Trib_Impaired","8/11/2023","Filtered",7.2,724,7.8,NA,NA,NA,"Fe",5.1436
+67.584501,-159.772953,141,"Salmon","river",46.77,"Salmon_MainStem","8/11/2023","Filtered",7.62,797,11.7,NA,NA,NA,"Fe",0.1057
+67.603516,-159.787881,155,"Salmon","trib",44.26,"Salmon_Trib_Unimpaired","8/11/2023","Filtered",7.1,523,8.3,NA,NA,NA,"Fe",0.1087
+67.639756,-159.805704,181,"Salmon","trib",39.25,"Sheep_Crk","8/11/2023","Filtered",8.1,544,9.1,NA,NA,NA,"Fe",0.0783
+67.639836,-159.805923,171,"Salmon","river",39.25,"Salmon_at_Anaktok","8/11/2023","Filtered",7.61,780,10,NA,NA,NA,"Fe",0.1031
+67.639999,-159.808113,165,"Salmon","trib",39.25,"Anaktok","8/11/2023","Filtered",7.46,914,8.7,NA,NA,NA,"Fe",0.3186
+67.380066,-159.714756,78,"Salmon","river",75.64,"Salmon_MainStem","8/12/2023","Filtered",7.63,572,12.6,NA,NA,NA,"Fe",0.1319
+67.430115,-159.803875,89,"Salmon","river",67.75,"Salmon_at_Nikok","8/12/2023","Filtered",7.52,550,10.2,NA,NA,NA,"Fe",0.1003
+67.430303,-159.805549,90,"Salmon","trib",67.75,"Nikok","8/12/2023","Filtered",7.5,276,10.8,NA,NA,NA,"Fe",0.1129
+67.458315,-159.790371,98,"Salmon","river",63.56,"Salmon_MainStem","8/12/2023","Filtered",7.58,804,NA,NA,NA,NA,"Fe",0.1013
+67.485774,-159.796124,110,"Salmon","trib",59.52,"Salmon_Trib_Unimpaired","8/12/2023","Filtered",7.55,787,6.9,NA,NA,NA,"Fe",0.1028
+67.51974,-159.776142,124,"Salmon","trib",54.77,"Noname","8/12/2023","Filtered",7.63,396,7.9,NA,NA,NA,"Fe",0.1028
+67.520144,-159.773525,130,"Salmon","river",54.77,"Salmon_at_Noname","8/12/2023","Filtered",7.45,590,9.1,NA,NA,NA,"Fe",0.0975
+67.180525,-159.509226,16,"Salmon","trib",112,"BeaverFever","8/13/2023","Filtered",6.86,164,11.6,NA,NA,NA,"Fe",2.1544
+67.181389,-159.509286,18,"Salmon","river",112,"Salmon_at_BeaverFever","8/13/2023","Filtered",7.6,672,12,NA,NA,NA,"Fe",0.1006
+67.187949,-159.523797,18,"Salmon","river",110.67,"Salmon_MainStem","8/13/2023","Filtered",7.36,890,12.3,NA,NA,NA,"Fe",0.0797
+67.188031,-159.524294,24,"Salmon","river",110.87,"Salmon_at_BeaverFever_Upper","8/13/2023","Filtered",7.3,1182,13.1,NA,NA,NA,"Fe",5.1825
+67.188091,-159.525066,23,"Salmon","trib",110.87,"BeaverFever_Upper","8/13/2023","Filtered",6.83,220,6.83,NA,NA,NA,"Fe",6.1423
+67.214478,-159.599297,28,"Salmon","river",103.75,"Salmon_MainStem","8/13/2023","Filtered",7.68,457,12.1,NA,NA,NA,"Fe",0.068
+67.24392,-159.673756,35,"Salmon","river",97.59,"Salmon_at_Kitlik","8/13/2023","Filtered",7.79,547,11.8,NA,NA,NA,"Fe",0.0684
+67.244035,-159.674503,34,"Salmon","trib",97.59,"Kitlik","8/13/2023","Filtered",7.03,304,13.3,NA,NA,NA,"Fe",0.0908
+67.257653,-159.642473,40,"Salmon","wetland",95.23,"Salmon_wetland","8/13/2023","Filtered",7.55,175,10.6,NA,NA,NA,"Fe",0.9749
+67.281895,-159.669951,45,"Salmon","river",91.07,"Salmon_MainStem","8/13/2023","Filtered",7.72,556,10.4,NA,NA,NA,"Fe",0.1715
+67.282471,-159.670842,49,"Salmon","wetland",90.97,"Salmon_wetland","8/13/2023","Filtered",6.49,157,14.9,NA,NA,NA,"Fe",8.5898
+67.282494,-159.670842,52,"Salmon","wetland",90.97,"Salmon_wetland","8/13/2023","Filtered",6.49,157,14.9,NA,NA,NA,"Fe",4.4079
+67.282573,-159.670885,50,"Salmon","wetland",90.97,"Salmon_wetland","8/13/2023","Filtered",6.49,157,14.9,NA,NA,NA,"Fe",1.1096
+67.306462,-159.714321,50,"Salmon","river",86.57,"Salmon_MainStem","8/13/2023","Filtered",7.3,783,10.6,NA,NA,NA,"Fe",0.122
+67.357704,-159.715326,69,"Salmon","river",79.18,"Salmon_MainStem","8/13/2023","Filtered",7.39,579,8.9,NA,NA,NA,"Fe",0.1589
+67.15528,-159.463,12,"Salmon","river",120.07,"Salmon_at_Mouth","8/14/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",1.7375
+66.880251,-162.505501,26,"Kotz","lake",NA,"Devil's_Lake","8/15/2023","Filtered",8.23,139,17.1,NA,NA,NA,"Fe",0.8126
+66.880251,-162.505501,26,"Kotz","lake",NA,"Devil's_Lake","8/15/2023","Filtered",8.68,79.38,16.9,NA,NA,NA,"Fe",0.8435
+66.880251,-162.505501,26,"Kotz","lake",NA,"Devil's_Lake","8/15/2023","Filtered",8.84,75.4,16.9,NA,NA,NA,"Fe",0.8376
+67.37428,-160.42233,202,"Timber Creek","trib",NA,"Darcy TC7B","8/5/2023","Filtered",5.82,101,7.6,NA,NA,NA,"Fe",0.1537
+67.37455,-160.42536,199,"Timber Creek","trib",NA,"Timber Creek Trib","8/4/2023","Filtered",7.77,1793,6.5,NA,NA,NA,"Fe",0.8377
+67.37467,-160.42457,198,"Timber Creek","trib",NA,"Orange pool","8/4/2023","Filtered",6.81,2187,11,NA,NA,NA,"Fe",0.1803
+67.37507,-160.42237,203,"Timber Creek","trib",NA,"Darcy TC8","8/5/2023","Filtered",6.53,1427,NA,NA,NA,NA,"Fe",0.2897
+67.375188,-160.423476,199,"Timber Creek","trib",NA,"Trib Stream sampled own from TC Trib-TD","8/7/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.2124
+67.37664,-160.41875,208,"Timber Creek","trib",NA,"Timber Creek Trib 2","8/4/2023","Filtered",7.64,871,6.2,NA,NA,NA,"Fe",0.3104
+67.37768,-160.41255,231,"Timber Creek","trib",NA,"Big_Burn","8/4/2023","Filtered",NA,NA,NA,NA,NA,NA,"Fe",0.0059

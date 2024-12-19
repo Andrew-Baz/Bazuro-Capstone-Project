@@ -22,13 +22,14 @@ After reading in the dataset we should check it to ensure that all variables are
 glimpse(Stream)
 ```
 
-Here we can see that the dataset is made up of 327 My analysis will only use `Concentration_ppm` and `DO_per` so I won't change any variable types.
+Here we can see that the dataset is made up of 327 My analysis will only use `Concentration_ppm` and `DO_per` so I won't change any variable types. However, since I only want to examine the Fe element I will remove the elements that aren't Fe.
 
 ```{r}
+Stream <- Stream |> filter(Element == "Fe")
 glimpse(Stream)
 ```
 
-The question that I am examining is: If there is a significant relationship between DO_per and the Concentration_ppm in water.
+The question that I am examining is: If there is a significant relationship between DO_per and the Concentration_ppm of Fe in water.
 
 #Plot I will use a boxplot here to examine the data
 
@@ -37,7 +38,7 @@ ggplot(data = Stream, aes(y = DO_per)) +
   geom_boxplot(outlier.color = "red")
 ```
 
-I can see several outliers here which appear to be concerning.
+I can see several outliers but there is no reason to doubt that they are valid data so I will leave them in.
 
 I will also make a histogram to check the data
 
@@ -45,31 +46,7 @@ I will also make a histogram to check the data
 ggplot(data = Stream, aes(y = DO_per)) +
   geom_histogram()
 ```
-
-Based on these plots I will be removing all values below 85 to eliminate the outliers.
-
-```{r}
-Stream <- Stream |> filter(DO_per >= 85)
-Stream |> arrange(DO_per)
-```
-
-Removing the outliers here also removes all the NA values from the dataset, reducing it to only 335 rows.
-
-After removing the outliers I have remade the plot to show the new data distribution.
-
-```{r}
-ggplot(data = Stream, aes(x = DO_per))+
-  geom_histogram()
-```
-
-I see no issues here although there is a value below 90 which may now be identified as an outlier.
-
-```{r}
-ggplot(data = Stream, aes(y = DO_per)) +
-  geom_boxplot(outlier.color = "red")
-```
-
-There is still one outlier but it only became an outlier after I removed the original ones so I will leave this one for now.
+Again while there are outliers I will be leaving them in as they are valid data points and could offer imortant conclusions to my data.
 
 As these are both continous variables I will create a scatterplot to examine the mean and intercept.
 
@@ -79,21 +56,33 @@ ggplot(Stream, aes(x = DO_per, y = Concentration_ppm)) +
   theme_bw()
 ```
 
-Here the mean appears to be around 50-100 with an intercept near 0 and a slope near or at 0. However, the large spread leads me to expect that there won't be a significant association between the two. #Model I will now create the model that I will be using for this analysis.
+Here the intercept is near 50 with a negative slope of slope of less than one . However, the large spread leads me to expect that there won't be a significant association between the two. 
+
+
+#Model 
+
+I will now create the model that I will be using for this analysis.
 
 ```{r}
 mod1 = lm(Concentration_ppm ~ DO_per, data = Stream)
 ```
 
-I have chosen to use a regression here as I am examining a ratio response variable along with a continous predictor. Since there is only a single predictor a regression is ideal.
+I have chosen to use a regression here as I am examining a ratio response variable along with a continous predictor. Since there is only a single predictor a regression is ideal. 
 
 #Model Assumption I will now run the `autoplot()` function to examine the conditions.
 
 ```{r}
 autoplot(mod1)
 ```
+Due to the normality issues I will be performing this analysis using glm to allow for a more flexible model.
 
-There are some outliers but overall I see no issues here. #Interpretation I will now run the `anova()` function to interpre the model
+```{r}
+mod1 = glm(Concentration_ppm ~ DO_per, data = Stream)
+```
+
+#Interpretation 
+
+I will now run the `anova()` function to interpret the model
 
 ```{r}
 anova(mod1)
@@ -107,15 +96,14 @@ I will now run the `summary()` table for closer examination
 summary(mod1)
 ```
 
-Here we can see that the slope for this is around -5 and the intercept appears to be at 475 (note the break in the graph above which I missed earlier). As our R\^2 adjusted is 0.050608 which means that 0.05% of our variation is associated with DO_per.
-
+Here we can see that the slope for this is around -8 and the intercept appears to be at 790.
 #Plot
 
 ```{r}
 ggplot(Stream, aes(x = DO_per, y = Concentration_ppm)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "glm")
   theme_bw()
 ```
 
-#Results There appears to be a statistically significant and negative association between DO_per and Concentration_ppm (F = 18.403, p = 2.361E-05, R\^2 = 0.05359)
+#Results There appears to be a statistically significant and negative association between DO_per and Concentration_ppm (F = 55.207, p = 5.68E-11)

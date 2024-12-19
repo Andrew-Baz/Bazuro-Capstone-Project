@@ -5,16 +5,299 @@ format: html
 editor: visual
 ---
 
-##Introduction
+# Read in dataset and Packages
+
+```{r}
+#| warning: false #hides output from this chunk in rendered document so libraries don't show.
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(ggfortify)
+library(multcomp)
+Stream = read.csv(here("Data", "Bazuro_Capstone_Final.csv"))
+Stream2 = read.csv(here("Data", "Bazuro_Capstone_Final2.csv"))
+```
+
+## Set up dataset for analysis
+
+```{r}
+Stream$Element <- as.factor(Stream$Element) #changes the Element variable into a factor
+Stream$Type <- as.factor(Stream$Type) #changes the Type variable into a factor
+```
+
+# Introduction
+
 The dataset that has been used for this project examines metal concentrations and other abiotic factors in the Seep water of the Wester Brooks Range of Alaska from 2022 to 2023. The study focuses on the Salmon watershed and the community of Kiana which survive off of fish harvested from the watershed. Several nearby watershed were also sampled including Timber Creek, Tukpahlearik Creek, Salmon River, Kallarichuk River, Kobuk River, and Devil's Lake. It specifically contains measurements of pH, conductivity, dissolved oxygen, and turbidity. The dataset 4,368 rows and 17 columns of data.
 
-###Steps for analysis
-To prepare the dataset for analysis I first loaded it in and made all appropriate variables into factor variables in preparation for tidying. I then filtered out the data so that only the four elements that were necessary for analysis remained. This left the dataset with only the four necessary elements (Fe, K, Na, and Mg) and 832 rows. 
+## Steps for analysis
 
-####Outliers
-After filtering the dataset was examined for outliers and issues in normality, of which there were several in the dataset. After removing a few of the concerning outliers the dataset still had issues in normality and far more outliers which appeared to be valid data points even if they were outside of the acceptable range and had been flagged. As such, to solve this issue the analysis was run with a glm model to allow more leeway from the normality assumption. The changed dataset was then saved under the name `Bazuro_Capstone_Final.csv` and can be found in the `data` folder.
+To prepare the dataset for analysis I first loaded it in and made all appropriate variables into factor variables in preparation for tidying. I then filtered out the data so that only the four elements that were necessary for analysis remained. This left the dataset with only the four necessary elements (Fe, K, Na, and Mg) and 832 rows. To prepare for the second analysis I had to filter down to just Fe, which left it with 207 rows.
 
-##Analysis
+### Outliers
 
-### Element Type Analysis
-The first analysis performed was on the
+After filtering the dataset was examined for outliers and issues in normality, of which there were several in the dataset. After removing a few of the concerning outliers the dataset still had issues in normality and far more outliers which appeared to be valid data points even if they were outside of the acceptable range and had been flagged. As such, to solve this issue the analysis was run with a glm model to allow more leeway from the normality assumption. The changed dataset was then saved under the name `Bazuro_Capstone_Final.csv` and can be found in the `data` folder. The second analysis used a different dataset that was saved as `Bazuro_Capstone_Final2.csv` and can also be found in the `data` folder.
+
+# Analysis
+
+## Element Type Analysis
+
+The analysis focused on the question: What is the effect of different habitat types on Mg, Na, Fe, and K.
+
+The null hypothesis for the first analysis was "There is no relationship between `Element`, `Type`, and the `Concentration_ppm`
+
+The alternative hypothesis for the first analysis was that: "There will be a significant relationship between `Element`, `Type`, and `Concentration_ppm`"
+
+The response variable in this analysis was `Concentration_ppm` which is a continous variable. The predictor variables were `Element` and `Type` which were both categorical variables.
+
+### Plot and Guess relationships
+
+#### Mg Plot
+
+We already examined the plots for outliers in the Data exploration so I won't do that here. However, I will still place a histogram here to estimate the means of each section. I will start by examining `Mg`
+
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+Here I see no outliers and will now create a boxplot to examine the mean.
+
+```{r}
+Stream |> filter(Element == "Mg") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+
+The mean for most graphs is close to zero, while the median in the seep is closer to 200. As such, I expect to see a significant increase in the seep compared to the other habitat types.
+
+#### Na Plot
+
+I will now examine `Na`
+
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+Here I do see some outliers but as I have no evidence that they aren't valid data points I will move forward.
+
+```{r}
+Stream |> filter(Element == "Na") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+
+Based on the means I would estimate there to be several significant differences. Notably, seep_control has a lower mean than all the other habitat types. Tributary, river, and lake all appear to have similar means at 1.8 and most likely won't be significantly different. However, wetland does have a higher mean of 2.5 and will most likely be significantly different from the other habitat types. Finally, the seep appears to have a mean of 2.3 and should be significantly different from all the types aside from the wetland.
+
+#### K Plot
+
+I will now examine `K`
+
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+Here the values are extremely close and while there are some outliers I have already trimmed out the ones that aren't valid data points. As such I will now create a boxplot to examine means.
+
+```{r}
+Stream |> filter(Element == "K") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+
+Based on this plot I would expect a significant difference between the seep and the other plots as it has a mean around 1 while the rest are all closer to 0.25. I would also expect a significant difference between tributary and the other plots as its outliers should significantly change its mean from the other plots.
+
+#### Fe plot
+
+I will now examine `Fe`
+
+```{r}
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+  geom_histogram()+
+  facet_wrap(~Type)
+```
+
+I see no outliers here so I will now examine the boxplot.
+
+```{r}
+Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
+  geom_boxplot()+
+  facet_wrap(~Type)
+```
+
+While there are again some outliers here they shouldn't be a concern. Based on the means I would expect to see a significant difference in only the seep as it has a mean closer to 150 while the rest are close to 0.
+
+### Create Model
+
+```{r}
+mod1 = glm(Concentration_ppm ~ Type * Element, data = Stream) ##concentration_ppm explained by Type + Element. I am using a glm to prepare for any issues in normality as I found several in the exploration. I am also using an interaction term to see if the effect of the habitat or element depends on the other element/habitat in question.
+```
+
+I have chosen to perform a two-way anova here because I want to examine the effects of two categorical predictor variables on one ratio response variable. Since my samples are both independent an Anova is the best test and will be two tailed as I mainly want to see the difference and can perform more analysis to determine the direction of the difference.
+
+### Check model assumptions
+
+```{r}
+autoplot(mod1) ## create several plots, including normality and leverage, to examine the assumptions for the data.
+```
+
+There are some visible errors in normality here but the glm should account for them so I will move forward.
+
+### Interpret Model
+
+I will now run the `anova()` function to interpret the model
+
+```{r}
+anova(mod1)
+```
+
+Here we can see that there is a highly significant effect of type and element on the concentration_ppm, as well as a significant interaction between the two main effects. There are 5 df for the type variable because it has 6 levels and we are calcuating n = 6 so df = n - 1 = 5. There are 3 df for element because it has 4 levels and we are calculating n = 4 so df = n - 1 = 3.
+
+I will now run the `summary()` function to examine how the concentration_ppm compares to the intercept for each habitat/type interaction.
+
+```{r}
+summary(mod1)
+```
+
+Our intercept here is the ElementFe predictor which is significantly different from the seep type and the three other elements when they are in the seep.
+
+```{r}
+phc1 <- glht(mod1, linfct = mcp(Type = "Tukey", Element = "Tukey"))
+summary(phc1)
+```
+
+Here we can see that there is a significant effect between seep_control and lake, seep and river, tributary and seep, and wetland and seep.
+
+### Replot to show Relationships
+
+I will now create a plot using the means and std errors of each of the commbinations.
+
+```{r}
+sum_stream <- Stream |> group_by(Element, Type) |> summarise(
+  mean_Concentration = mean(Concentration_ppm),
+    se_Concentration = sd(Concentration_ppm)/sqrt(n())
+)
+sum_stream
+```
+
+```{r}
+ggplot(sum_stream, aes(x = Type, y = mean_Concentration, colour = Element, group = Element)) +
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin = mean_Concentration - se_Concentration,
+                    ymax = mean_Concentration + se_Concentration), width = 0.1) +
+  labs(title = "Mean Concentration Explained by Type and Grouped by Element", x = "Body of Water", y = "Mean Concentration (ppm)") +
+  theme_bw()
+```
+
+### Results
+
+Overall, we reject the null hypothesis that there was no relationship between `Element`, `Type`, and the `Concentration_ppm`. As we found that the `Element` (F = 35.705, p = 2.2 E-16) `Type` (F = 43.809, p = 2.2e -16), and Interaction (F = 18.339, p = 2.2e-16) had a significant and positive effect on the `Concentration_ppm`. Our specific significant results were between seep_control and lake, seep and river, tributary and seep, and wetland and seep.
+
+## DO_Per Analysis
+
+The analysis focused on the question: Is there a difference in `DO_per` for different `Concentration_ppm` of `Fe`?
+
+The null hypothesis for the second analysis was "There is no relationship between the `Concentration_ppm` of `Fe` and the `DO_per`.
+
+The alternative hypothesis for the second analysis was "There will be a significant relationship between the `Conectration_ppm` of `Fe` and the `DO_per`.
+
+The response variable was `DO_per`
+
+### Plot and Guess Relationships
+
+I will begin by making a boxplot of the data
+
+```{r}
+ggplot(data = Stream2, aes(y = DO_per)) +
+  geom_boxplot(outlier.color = "red")
+```
+
+I can see several outliers but there is no reason to doubt that they are valid data so I will leave them in.
+
+I will also make a histogram to check the data
+
+```{r}
+ggplot(data = Stream2, aes(y = DO_per)) +
+  geom_histogram()
+```
+
+Again while there are outliers I will be leaving them in as they are valid data points and could offer imortant conclusions to my data.
+
+As these are both continuous variables I will create a scatterplot to examine the mean and intercept.
+
+```{r}
+ggplot(Stream2, aes(x = DO_per, y = Concentration_ppm)) +
+  geom_point() +
+  theme_bw()
+```
+
+Here the intercept is near 50 with a negative slope of slope of less than one . However, the large spread leads me to expect that there won't be a significant association between the two.
+
+### Create Model
+
+I will now create the model that I will be using for this analysis.
+
+```{r}
+mod2 = glm(Concentration_ppm ~ DO_per, data = Stream)
+```
+
+I have chosen to use a regression here as I am examining a ratio response variable along with a continous predictor. Since there is only a single predictor a regression is ideal. However, I have chosen to use `glm()` instead of `lm()` to deal with any normality issues generated by the outliers.
+
+### Check model assumptions
+
+I will now run the `autoplot()` function to examine the conditions.
+
+```{r}
+autoplot(mod2)
+```
+
+As mentioned above the normality issues are present but should be fine with the `glm()` model that is being used.
+
+### Interpret Model
+
+I will now run the `anova()` function to interpret the model
+
+```{r}
+anova(mod2)
+```
+
+Based on this plot I can see that there is a significant association between the DO_per and Concentration_ppm (F = 37.986, p = 1.877e-09)
+
+I will now run the `summary()` table for closer examination
+
+```{r}
+summary(mod2)
+```
+
+Here we can see that the slope for this is around -2.8 and the intercept appears to be at 288. This is a steeper plot than my expectations.
+
+### Replot to show Relationships
+
+```{r}
+ggplot(Stream2, aes(x = DO_per, y = Concentration_ppm)) +
+  geom_point() +
+  geom_smooth(method = "glm") +
+  labs(title = "Dissolved Oxygen explained by Concentration of Fe", x = "Dissolved Oxygen (%)", y = "Concentration of Fe (ppm)") +
+  theme_bw()
+```
+
+### Results
+
+# Challenges
+
+## Overall challenges
+
+The main part of my project that I had to learn was how to deal with outliers and issues with normality. There was a large number of outliers in my data but the vast majority of them were valid data points which could not be reasonably ignored. As such, my analysis had to be performed in a manner which used a more robust model, which was done through the use of glm.
+
+## Challenges in analysis 1
+
+The main difficulties came in how I had to perform a tukeyHSD on a glm with multiple predictor variables. This wasn't covered in class and required me to dig through the multcomp package to determine the proper code and setup. Even with the information I found in the multcomp package I was only able to make a model with both the predictor variables without the interaction effect. I was also unable to use the `cld()` function to give myself an easy to read final result to the TukeyHSD as it simply gave an error. This analysis was particularly difficult as it was based off two response variables which required subtle changes to several parts of my analysis as most of the code we learned in class was tailored to use on a single predictor variable. This caused my analysis to run much longer than most of those done in class as I had to check normality and outliers in each of my `Element` levels.
+
+## Challenges in analysis 2
+
+When I started analysis 2 my overall question was very different and had to be trimmed down to a simpler question as due to the structure of the data it would be impossible to look at more than one element without running an ANCOVA, which would be on top of using the glm model to account for the issues in normality.

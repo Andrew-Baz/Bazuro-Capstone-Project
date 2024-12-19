@@ -113,15 +113,13 @@ Stream |> filter(Element == "Fe") |> ggplot(aes(Concentration_ppm))+
 
 While there are again some outliers here they shouldn't be a concern. Based on the means I would expect to see a significant difference in only the seep as it has a mean closer to 150 while the rest are close to 0.
 
-# Model 
+# Model
 
 As I see no outliers and have examined each plot I will now create the model.
-
 
 Our null hypothesis is "There is no relationship between `Element`, `Type`, and the `Concentration_ppm`."
 
 Our alternative hypothesis is "There is a relationship between `Element`, `Type`, and the `Concentration_ppm` with
-
 
 ```{r}
 mod1 = glm(Concentration_ppm ~ Type * Element, data = Stream) ##concentration_ppm explained by Type * Element. I am using an interaction term to see if the effect of the habitat or element depends on the other element/habitat in question.
@@ -137,11 +135,12 @@ autoplot(mod1) ##When I ran this I noticed a ton of points coming off the line a
 
 It is noteable here that there are several values near the end of the normality plot that have moved far off the line. This shows that there are still some potential issues with normality but that they aren't very severe and we can move forward.
 
+#Interpretation 
 
-#Interpretation I will now run the `anova()` function to interpret the model
+I will now run the `anova()` function to interpret the model
 
 ```{r}
-anova(mod1, test = "Chisq")
+anova(mod1)
 ```
 
 Here we can see that there is a highly significant effect of type and element on the concentration_ppm, as well as a significant interaction between the two main effects. There are 5 df for the type variable because it has 6 levels and we are calcuating n = 6 so df = n - 1 = 5. There are 3 df for element because it has 4 levels and we are calculating n = 4 so df = n - 1 = 3.
@@ -153,23 +152,24 @@ summary(mod1)
 ```
 
 Our intercept here is the ElementFe predictor which is significantly different from the seep type and the three other elements.
+
 ```{r}
-phc1 <- glht(mod1, linfct = mcp(Type = "Tukey"))
-phc2 <- glht(mod1, linfct = mcp(Element = "Tukey"))
-phc1 <- glht(mod1, linfct = mcp((Type = "Tukey") + (Element = "Tukey")))
+phc1 <- glht(mod1, linfct = mcp(Element = "Tukey", Type = "Tukey"))
 summary(phc1)
-summary(phc2)
 ```
 
+```{r}
+cld(phc1)
+```
 
 I assume that you want us to run a tukeyHSD here but when I attempted to do so I had some errors trying to figure it out. I ended up checking chapter 6 but didn't see anything about how to use a TukeyHSD here so if you'd like one in the final analysis I'd prefer to meet with you about the proper setup for a two-way anova tukey. I ended up following the chapter to create a plot using the means and std deviations to show variation.
 
-I will now create a plot using the means and std deviations of each of the commbinations.
+I will now create a plot using the means and std errors of each of the commbinations.
 
 ```{r}
 sum_stream <- Stream |> group_by(Element, Type) |> summarise(
   mean_Concentration = mean(Concentration_ppm),
-    sd_Concentration = sd(Concentration_ppm)/sqrt(n())
+    se_Concentration = se(Concentration_ppm)/sqrt(n())
 )
 sum_stream
 ```
