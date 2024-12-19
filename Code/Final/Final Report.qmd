@@ -309,6 +309,6 @@ When I started analysis 2 my overall question was very different and had to be t
 
 Alexander B Michaud, Rémi O Massé, David Emerson, Microbial iron cycling is prevalent in water-logged Alaskan Arctic tundra habitats, but sensitive to disturbance, FEMS Microbiology Ecology, Volume 99, Issue 3, March 2023, fiad013, https://doi.org/10.1093/femsec/fiad013
 
-Han Yingchun, Zhang Chuwen, Zhao Zhuoming, A comprehensive Genomic Catalog From Global Cold Seeps. Scientific Data, Volume 10, Article 596, September 2023.  https://www.nature.com/articles/s41597-023-02521-4
+Han Yingchun, Zhang Chuwen, Zhao Zhuoming, A comprehensive Genomic Catalog From Global Cold Seeps. Scientific Data, Volume 10, Article 596, September 2023. https://www.nature.com/articles/s41597-023-02521-4
 
 Kohler Inga, Martinez Raul, Piatka David. How are oxygen Budgets Influenced by Dissolved Iron an dGrowth of Oxygenic Phototrophs in an iron-rich spring system? Initital Results from the Espan Spring in Furth Germany. Biogeosciences, Volume 18, 4535-4548, August 2021, https://bg.copernicus.org/articles/18/4535/2021/bg-18-4535-2021.pdf
